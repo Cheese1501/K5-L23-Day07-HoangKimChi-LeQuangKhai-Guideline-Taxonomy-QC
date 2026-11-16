@@ -1,12 +1,20 @@
-# Guideline chung nhóm 101–102 — v1.0 (dự thảo)
+# Guideline gán nhãn chung — v1.0 (dự thảo) — nhóm 101–102
 
 > **PENDING TEAM APPROVAL — CHƯA KHÓA ĐỂ ANNOTATION.** Tên file theo SUBMISSION, không phải bằng chứng đã agreed. Toàn bộ quy tắc dưới đây là bản đề xuất để cả 101 và 102 xác nhận. Chưa có chữ ký hoặc ngày xác nhận của hai người.
 
+- **File chung để cả hai sửa và theo dõi:** `submission/guidelines/guideline_v1.0_agreed.md`, theo GUIDE Pha 2. Chỉnh nội dung quy tắc ngay trong file này; không tạo thêm bản guideline chung trong `guideline/`, `docs/` hoặc `individual/`.
+- **Người đọc / xác nhận:** thành viên 101 và 102; trạng thái của từng người tại mục 6. Merge vào main không thay thế xác nhận nội dung.
 - Mã bản đề xuất: `team-v1.0-draft-2026-11-16-r1`.
 - Ngày soạn: 2026-11-16; AI hỗ trợ đối chiếu, không thay người quyết định hoặc vẽ box.
 - Nguồn: guideline 101 tại `0ee4cea`; guideline 102 đọc bằng `git show origin/main:submission/guidelines/individual/guideline_102.md` tại `7cc0971`; v0, taxonomy/schema, ảnh gốc và chỉ đạo occlusion mới của người dùng.
 - Taxonomy hiện hành vẫn **v0**. Chỉ chuyển version sang `v1.0` và sinh cấu hình sau khi nhóm xác nhận toàn bản này.
 - Đối chiếu/lý do/điểm cần chứng cứ: [harmonization](../../docs/team/GUIDELINE_HARMONIZATION.md). Thao tác tiếp: [checklist](../../docs/team/NEXT_PHASE_CHECKLIST.md).
+
+### Cách dùng bản chung
+
+Đọc theo thứ tự mục tiêu → lớp/thuộc tính → box → ca khó → QC → xác nhận. Khi góp ý, nêu Rule ID, ID ảnh, nội dung muốn sửa và lý do; ví dụ: `R-03 / img_002 / cách chọn mức che cho xe tầng dưới`. Đây là góp ý guideline trước lượt gán, không chia sẻ nhãn trong lượt annotation độc lập.
+
+Hai bản trong `submission/guidelines/individual/` giữ lựa chọn ban đầu của từng người. `guideline/` chứa starter và template của lớp; `docs/team/` chứa đối chiếu, checklist và hướng dẫn thao tác. Khi nhóm khóa v1.0, file này cùng taxonomy v1.0 là căn cứ chung cho annotation. Nếu sửa nghĩa quy tắc, tăng revision và để cả hai xác nhận lại; sửa trình bày giữ nguyên nghĩa ghi vào lịch sử.
 
 ## 1. Mục tiêu và phạm vi
 
@@ -31,7 +39,7 @@ Giữ sáu tên lớp và `ignore_class=ignore_region`; không thêm class trong
 
 **R-02 — Ngoài scope:** bus/minibus (đề xuất loại xe img_009 và bus img_031, img_037), xe đạp, xích lô, tuk-tuk, động vật và vật rời không có box object. Người vận hành nhìn thấy vẫn xét person. Không dùng ignore chỉ vì vật ngoài taxonomy. Khi van/minibus chưa phân biệt được theo cấu tạo: box ứng viên có class hợp lý và can_review nếu đủ căn cứ; nếu chỉ có căn cứ là bus ngoài scope thì loại, không ép van. Không nhận ra class/box thì ghi issue. Hai người cần xác nhận cặp mẫu img_005–img_009 trước khóa.
 
-### 2.2 R-03 — `occluded_level`: bảng đề xuất mới theo yêu cầu người dùng
+### 2.2 R-03 — `occluded_level`: mức che khuất
 
 Giữ enum chuỗi `"0"`, `"1"`, `"2"`, `"3"`, mặc định `"0"`. Mỗi box phải được người gán kiểm lại, không coi default là kết luận thị giác.
 
@@ -90,6 +98,8 @@ Xe thật trong showroom hoặc xe diễu hành vẫn xét class; không suy “
 
 Ảnh gốc ở `data/images/`; đây là ví dụ đã được AI mở/đối chiếu tài liệu, chưa là kết quả annotation hoặc xác nhận của hai người. Những ca NEEDS_EVIDENCE phải được kiểm trước khóa hoặc nhóm xác nhận chính sách xử lý bất định dùng chung.
 
+Mở ảnh để đối chiếu: [img_002 — carrier](../../data/images/img_002.jpg), [img_005 — người và van](../../data/images/img_005.jpg), [img_009 — minibus](../../data/images/img_009.jpg), [img_024 — xe vàng](../../data/images/img_024.jpg), [img_028 — pickup](../../data/images/img_028.jpg), [img_040 — taxi và phần xe sát biên](../../data/images/img_040.jpg).
+
 | Ảnh | Quan sát / tình huống | Rule ID | Xử lý đề xuất | Giới hạn / cần xác nhận |
 |---|---|---|---|---|
 | img_002 | Xe đầu kéo/carrier hai tầng, xe được chở, người cạnh đuôi | R-03, R-06, R-08 | Truck tổ hợp, xe được chở riêng, người riêng; bao các phần thấy rời nhau | Không đoán số xe khuất/mức che phần trăm; ước lượng từng instance |
@@ -120,7 +130,7 @@ Xe thật trong showroom hoặc xe diễu hành vẫn xét class; không suy “
 | iaa_class | 0.95 | Đồng thuận lớp trên matched pairs |
 | error_rate_img_max | 0.02 | Ảnh lỗi/ảnh duyệt tối đa 2% |
 
-Mốc 50% che của R-03 là nghĩa thuộc tính đề xuất theo người dùng, không sửa bất kỳ khóa rules nào. Ngưỡng cao 50 px ở QC là đại lượng khác.
+Mốc 50% che của R-03 là ranh giới ý nghĩa thuộc tính trong bản đề xuất này, không sửa bất kỳ khóa rules nào. Ngưỡng cao 50 px ở QC là đại lượng khác.
 
 ### R-11 — Độc lập, calibration và quyết định QC
 
@@ -138,6 +148,7 @@ Mốc 50% che của R-03 là nghĩa thuộc tính đề xuất theo người dù
 | v0 | Starter lớp/thuộc tính | Giữ nguyên làm nguồn, không sửa |
 | individual-101 / individual-102-draft | Hai nguồn đề xuất độc lập | Giữ bản gốc và khác biệt trong harmonization |
 | team-v1.0-draft-2026-11-16-r1 | Tổng hợp R-01–11, đề xuất che dưới/từ 50%, mức 3 không xác định; ví dụ thật và checklist | Theo yêu cầu người dùng; PENDING TEAM APPROVAL; chưa hiệu lực annotation |
+| r1 — chỉnh trình bày 2026-11-16 | Chuẩn hóa tiêu đề theo template, nêu file chung đúng folder, cách góp ý theo Rule ID và liên kết ảnh | Giữ nguyên nghĩa R-01–11, bảng occlusion và trạng thái chờ xác nhận |
 
 ## 6. Ghi nhận xác nhận và điều kiện khóa
 

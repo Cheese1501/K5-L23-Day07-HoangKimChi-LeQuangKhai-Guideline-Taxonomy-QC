@@ -1,4 +1,4 @@
-# Guideline nhóm 101–102 — đề xuất v1.0
+# Guideline chung nhóm 101–102 — v1.0 (dự thảo)
 
 > **PENDING TEAM APPROVAL — CHƯA KHÓA ĐỂ ANNOTATION.** Tên file theo SUBMISSION, không phải bằng chứng đã agreed. Toàn bộ quy tắc dưới đây là bản đề xuất để cả 101 và 102 xác nhận. Chưa có chữ ký hoặc ngày xác nhận của hai người.
 

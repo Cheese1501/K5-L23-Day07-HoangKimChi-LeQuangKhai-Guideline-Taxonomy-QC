@@ -44,5 +44,7 @@ Trọng tâm là **guideline**: nhãn chỉ tốt khi mọi người hiểu quy 
 | Mẫu báo cáo QC, ghi chú cá nhân | [docs/QC_REPORT_TEMPLATE.md](docs/QC_REPORT_TEMPLATE.md), [docs/INDIVIDUAL_NOTE_TEMPLATE.md](docs/INDIVIDUAL_NOTE_TEMPLATE.md) |
 | Các lệnh và file đầu ra | [scripts/README.md](scripts/README.md) |
 | Guideline khởi đầu (v0), khung viết guideline | [guideline/](guideline/) |
+| **Guideline chung nhóm 101–102 (dự thảo, chờ hai người xác nhận)** | [guideline_v1.0_agreed.md](submission/guidelines/guideline_v1.0_agreed.md) |
+| Đối chiếu quy tắc và điều kiện bắt đầu annotation của nhóm | [Harmonization](docs/team/GUIDELINE_HARMONIZATION.md), [checklist chuyển pha](docs/team/NEXT_PHASE_CHECKLIST.md) |
 | Nguồn và giấy phép ảnh | [data/README.md](data/README.md) |
 | **Coach:** chuẩn bị lớp, ma trận kiểm thử | [docs/COACH_GUIDE.md](docs/COACH_GUIDE.md), [docs/TEST_MATRIX.md](docs/TEST_MATRIX.md) |

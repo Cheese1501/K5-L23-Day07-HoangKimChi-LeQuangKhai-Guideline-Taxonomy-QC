@@ -1,17 +1,17 @@
-# Guideline gán nhãn cá nhân 101 — diễn giải taxonomy v0
+# Guideline gán nhãn — individual-101-v0 — 101
 
-- **Mã thành viên:** 101
-- **Phiên bản tham chiếu:** `submission/taxonomy.json` — `v0`
-- **Ngày lập bản đối chiếu:** 2026-11-16
-- **Phạm vi:** đề xuất quy tắc cho lượt gán cá nhân 101; không phải guideline nhóm `v1.0` và không thay thế taxonomy.
+- Phiên bản: individual-101-v0, bản đề xuất ban đầu từ guideline v0.
+- Mã thành viên: 101.
+- Ngày biên tập: 2026-11-16.
+- Phạm vi: 40 ảnh của lab, bounding box 2D. Giữ các lựa chọn ban đầu để đối chiếu với quy tắc chung đã chốt; không dùng bản này thay v1.0 trong lượt gán độc lập.
 
-Các quy tắc mang mã `I101-xx` để tra cứu trong phần ca khó và ghi chú cá nhân. Đây là mã nội bộ của bản cá nhân, không phải mã rule nhóm. Các ngưỡng có sẵn trong taxonomy/QC của lab được giữ nguyên. Với điểm v0 chưa định lượng (đặc biệt mức che khuất và pickup/minibus), phần dưới nêu cách diễn giải đề xuất để 101 kiểm tra và mang vào thảo luận nhóm.
+Các mã I101-01–10 là quy tắc cá nhân. Mốc 25% dưới đây là đề xuất ban đầu của 101, không phải ngưỡng đang áp dụng của nhóm. Phần hỗ trợ AI được khai báo trong [ghi chú cá nhân](../../individual_notes/101.md); các ví dụ không thay thế nhãn do người học tự vẽ.
 
 ## 1. Mục tiêu và phạm vi
 
 Mục tiêu là tạo bounding box 2D nhất quán cho người và phương tiện thật nhìn thấy trong bộ ảnh đường phố được giao cho mã 101. Bộ 101 có 40 ảnh (`img_001.jpg`–`img_040.jpg`). Mỗi vật thể mục tiêu được biểu diễn riêng; người và phương tiện không gộp thành một instance. Ảnh dùng để huấn luyện phát hiện đối tượng nên box, class và thuộc tính phải mô tả vật thể trong ảnh, không phải vật thể được suy đoán ngoài khung.
 
-Khi gán nhãn chính thức, chỉ dùng các đề xuất dưới đây nếu đã được nhóm chấp thuận trong guideline/taxonomy v1.0 đã khóa. Giai đoạn cá nhân hiện dùng taxonomy v0 để hình thành cách hiểu ban đầu. Không bổ sung class hoặc sửa `rules` bằng guideline này.
+Khi gán nhãn chính thức, chỉ dùng các đề xuất dưới đây nếu đã được nhóm chấp thuận trong guideline/taxonomy v1.0 đã khóa. Bản cá nhân ghi lại cách hiểu ban đầu từ v0; lượt gán thực tế dùng v1.0 chung. Không bổ sung class hoặc sửa `rules` bằng guideline này.
 
 ### Nguyên tắc chung
 
@@ -57,9 +57,9 @@ Che khuất xảy ra khi một vật khác trong cảnh che một phần vật t
 | `"0"` | Không bị vật khác che. |
 | `"1"` | Bị che nhẹ, ước tính trên 0% đến 25% diện tích vật thể. |
 | `"2"` | Bị che nhiều, ước tính trên 25% diện tích vật thể, kể cả trên 50%, khi vẫn nhận dạng được class và ước lượng được mức che. |
-| `"3"` | Không rõ mức che theo nghĩa v0, không phải một mức phần trăm cao hơn `2`. Chỉ giữ box ứng viên khi vẫn nhận ra class; bật `can_review` nếu hình dạng/biên box chưa chắc. Nếu không nhận ra class thì không gán box và ghi issue. |
+| `"3"` | Không rõ mức che theo nghĩa v0, không phải một mức phần trăm cao hơn `2`. Chỉ giữ box ứng viên khi vẫn nhận ra class; bật `can_review` để kiểm lại mức che chưa xác định. Nếu không nhận ra class thì không gán box và ghi issue. |
 
-Tỷ lệ là ước lượng trực quan đối với phần vật thể dự kiến, không phải phép đo pixel chính xác. Nếu không xác định được class, không tạo nhãn đoán mò; ghi vấn đề cấp ảnh. Mốc 25% là đề xuất định lượng cá nhân; không dùng mốc 50% để đổi nghĩa mức `3`. Đây là đề xuất vì v0 không đặt ngưỡng phần trăm; cần nhóm thống nhất trước khi dùng chung. Che khuất trong ảnh không làm `truncated=yes`.
+Tỷ lệ là ước lượng trực quan phần đối tượng nằm trong ảnh bị vật khác che, không phải phép đo pixel chính xác; loại phần ngoài biên ảnh khỏi tỷ lệ che. Nếu không xác định được class, không tạo nhãn đoán mò; ghi vấn đề cấp ảnh. Mốc 25% là đề xuất định lượng cá nhân; không dùng mốc 50% để đổi nghĩa mức `3`. Đây là đề xuất vì v0 không đặt ngưỡng phần trăm; được giữ để đối chiếu lịch sử; nhóm đã chọn mốc 50% trong v1.0 chung. Che khuất trong ảnh không làm `truncated=yes`.
 
 #### `truncated`
 
@@ -145,7 +145,7 @@ Với vật bị nhòe (`img_014`), chỉ box khi loại vật và phần nhìn 
 | `img_038.jpg` | Nhiều xe mô hình và đồ chơi trong cửa hàng | I101-07 | Không gán `car`/`person` cho đồ chơi hoặc thú bông. | Vật trưng bày không phải instance giao thông thật. |
 | `img_040.jpg` | Người đội mũ ở tiền cảnh, taxi lớn, bus và xe khác ở nền | I101-02, I101-05, I101-08 | Box người riêng và taxi `car`; gương/phần xe hai bánh sát biên dưới chưa đủ để dựng box cả xe; nếu xác định được motorcycle thì box phần thấy và `can_review`. Taxi và người bị biên ảnh cắt đặt `truncated=yes`; bus ngoài class nếu nhóm chưa có rule. | Mũ bảo hiểm không đủ chứng minh có motorcycle; box dựa trên vật thật trong ảnh. |
 
-## 5. Quality Control
+## 5. QC và phiên bản
 
 ### Kiểm tra từng box
 
@@ -183,12 +183,12 @@ Báo cả lỗi theo ảnh (ảnh lỗi/ảnh đã duyệt) và theo đối tư�
 6. Chạy `python scripts/validate_labels.py submission/labels/101.json`; giải quyết mọi lỗi dựa trên ảnh gốc, không sửa tọa độ chỉ để validator pass.
 7. Gửi riêng nhãn 101 theo quy trình; không mở/so sánh nhãn thành viên khác trước khi hoàn tất độc lập.
 
-## 6. Kết luận và lịch sử phiên bản
 
-Trọng yếu nhất là tách đúng từng người và phương tiện, không nhầm occlusion với truncation, không gán vật thể in/tượng/đồ chơi/phản chiếu, không ép loại xe thiếu class vào taxonomy, và dùng `can_review` thay cho phỏng đoán. Những đề xuất cá nhân này cần được kiểm tra với ảnh gốc và thay thế bằng quy tắc nhóm v1.0 trước khi annotation chính thức.
+### Lịch sử phiên bản
 
-| Phiên bản | Nội dung | Căn cứ |
+| Phiên bản | Thay đổi | Lý do (ca nào) |
 |---|---|---|
-| v0 | Guideline khởi đầu của lab; quy tắc lớp, thuộc tính và box còn khái quát. | `guideline/guideline_v0_starter.md`, `submission/taxonomy.json` |
-| Audit 2026-11-16 | Giữ mức occlusion 3 là không rõ; làm rõ mốc 0/25%, ego, QC và ví dụ ảnh. Chưa khóa quy tắc nhóm. | `docs/member_101/FINAL_AUDIT_101.md` |
-| Bản cá nhân 101 | Bổ sung quy tắc đề xuất và ca ảnh để 101 rà soát; chưa phải guideline nhóm. | 40 ảnh trong `work/101/images/`; chi tiết tại `docs/member_101/IMAGE_ANALYSIS.md` |
+| individual-101-v0 | Đề xuất ban đầu về lớp, box, thuộc tính và ca khó; mốc che 25% | Carrier img_002, người–xe img_005/img_026, tượng img_017 và ca biên |
+| Biên tập 2026-11-16 | Làm rõ phạm vi bản cá nhân, mức 3 và cách phân biệt che/cắt biên; giữ lựa chọn 25% để đối chiếu | Tránh dùng đề xuất cũ thay v1.0 khi gán độc lập |
+
+Quy tắc dùng khi gán là [guideline chung v1.0](../guideline_v1.0_agreed.md): mức 1 dưới 50%, mức 2 từ 50%, mức 3 không xác định. Bản cá nhân này không thay thế quyết định nhóm và không phải kết quả annotation.

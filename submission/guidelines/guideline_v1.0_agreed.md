@@ -1,20 +1,9 @@
-# Guideline gán nhãn chung — v1.0 — nhóm 101–102
+# Guideline gán nhãn — v1.0 — nhóm 101–102
 
-> **AGREED — ĐÃ KHÓA v1.0 cho lượt annotation độc lập.** Ngày 2026-11-16, người dùng xác nhận trong trao đổi chuẩn bị Pha 3: “Cả hai đã đồng ý toàn bộ bản chung”, đối với `team-v1.0-draft-2026-11-16-r1`. Ghi nhận sự đồng ý chung theo thông tin người dùng cung cấp; không tạo chữ ký riêng thay hai thành viên. Task và kết quả gán nhãn là bằng chứng cần bổ sung ở Pha 3.
-
-- **File chung để cả hai sửa và theo dõi:** `submission/guidelines/guideline_v1.0_agreed.md`, theo GUIDE Pha 2. Chỉnh nội dung quy tắc ngay trong file này; không tạo thêm bản guideline chung trong `guideline/`, `docs/` hoặc `individual/`.
-- **Người đọc / xác nhận:** thành viên 101 và 102; trạng thái của từng người tại mục 6. Merge vào main không thay thế xác nhận nội dung.
-- Phiên bản khóa: `v1.0`; nội dung R-01–11 được duyệt từ `team-v1.0-draft-2026-11-16-r1`.
-- Ngày soạn: 2026-11-16; AI hỗ trợ đối chiếu, không thay người quyết định hoặc vẽ box.
-- Nguồn: guideline 101 tại `0ee4cea`; guideline 102 đọc bằng `git show origin/main:submission/guidelines/individual/guideline_102.md` tại `7cc0971`; v0, taxonomy/schema, ảnh gốc và chỉ đạo occlusion mới của người dùng.
-- Taxonomy dùng khi gán: **v1.0**, tại `submission/taxonomy.json`; cấu hình Project từ `cvat/labels_generated.json`. Giữ nguyên enum, default và các ngưỡng rules.
-- Đối chiếu/lý do/điểm cần chứng cứ: [harmonization](../../docs/team/GUIDELINE_HARMONIZATION.md). Thao tác tiếp: [checklist](../../docs/team/NEXT_PHASE_CHECKLIST.md).
-
-### Cách dùng bản chung
-
-Đọc theo thứ tự mục tiêu → lớp/thuộc tính → box → ca khó → QC → xác nhận. Khi góp ý, nêu Rule ID, ID ảnh, nội dung muốn sửa và lý do; ví dụ: `R-03 / img_002 / cách chọn mức che cho xe tầng dưới`. Đây là góp ý guideline trước lượt gán, không chia sẻ nhãn trong lượt annotation độc lập.
-
-Hai bản trong `submission/guidelines/individual/` giữ lựa chọn ban đầu của từng người. `guideline/` chứa starter và template của lớp; `docs/team/` chứa đối chiếu, checklist và hướng dẫn thao tác. Khi nhóm khóa v1.0, file này cùng taxonomy v1.0 là căn cứ chung cho annotation. Nếu sửa nghĩa quy tắc, tăng revision và để cả hai xác nhận lại; sửa trình bày giữ nguyên nghĩa ghi vào lịch sử.
+- Phiên bản: **v1.0, đã thống nhất cho lượt gán độc lập**.
+- Thành viên duyệt: **101 và 102**; ghi nhận đồng ý toàn bộ bản chung ngày 2026-11-16.
+- Phạm vi: bộ 40 ảnh Day 07; nhãn bounding box 2D theo `submission/taxonomy.json` v1.0.
+- Đây là guideline chung duy nhất của nhóm. Hai bản cá nhân được giữ riêng để đối chiếu lựa chọn ban đầu.
 
 ## 1. Mục tiêu và phạm vi
 
@@ -96,22 +85,22 @@ Xe thật trong showroom hoặc xe diễu hành vẫn xét class; không suy “
 
 ## 4. Ca khó — quyết định áp dụng và giới hạn
 
-Ảnh gốc ở `data/images/`; bảng này hướng dẫn áp dụng quy tắc, chưa phải annotation. Nhóm đã đồng ý chính sách R-05 cho ca chưa rõ. NEEDS_EVIDENCE chỉ đặc điểm vật/ranh giới còn cần kiểm khi gán, không phải quy tắc đang thiếu xác nhận.
+Ảnh gốc ở `data/images/`; bảng này hướng dẫn áp dụng quy tắc, chưa phải annotation. Ca chưa rõ áp dụng R-05: có ứng viên hợp lý thì đánh dấu review, chưa nhận dạng được thì ghi vấn đề cấp ảnh. Việc thống nhất quy trình xử lý không có nghĩa đã xác định bản chất của mọi vật trong ảnh.
 
 Mở ảnh để đối chiếu: [img_002 — carrier](../../data/images/img_002.jpg), [img_005 — người và van](../../data/images/img_005.jpg), [img_009 — minibus](../../data/images/img_009.jpg), [img_024 — xe vàng](../../data/images/img_024.jpg), [img_028 — pickup](../../data/images/img_028.jpg), [img_040 — taxi và phần xe sát biên](../../data/images/img_040.jpg).
 
 | Ảnh | Quan sát / tình huống | Rule ID | Xử lý theo v1.0 | Giới hạn / cần xác nhận |
 |---|---|---|---|---|
 | img_002 | Xe đầu kéo/carrier hai tầng, xe được chở, người cạnh đuôi | R-03, R-06, R-08 | Truck tổ hợp, xe được chở riêng, người riêng; bao các phần thấy rời nhau | Không đoán số xe khuất/mức che phần trăm; ước lượng từng instance |
-| img_005 và img_026 | Người và xe máy chồng lấp; van nền ở 005; tranh nền ở 026 | R-01, R-03–06, R-09 | Tách người/xe; loại tranh; van 005 là ứng viên van; xe 026 cắt dưới | Hai người tự giải thích cùng cách, xác nhận ranh giới van/minibus |
+| img_005 và img_026 | Người và xe máy chồng lấp; van nền ở 005; tranh nền ở 026 | R-01, R-03–06, R-09 | Tách người/xe; loại tranh; van 005 là ứng viên van; xe 026 cắt dưới | Kiểm riêng từng instance theo R-01/R-02; không gộp người với xe |
 | img_009 | Xe minibus thân lớn | R-02 | Ngoài scope, không tự gọi van/truck; người/xe hai bánh khác vẫn xét | Đối chiếu cặp tương phản với van img_005; ca chưa rõ dùng R-05 |
 | img_018 | Xe sau rào và chân dung in | R-03, R-06, R-09 | Box xe thật theo phần thấy, loại chân dung; rào là occlusion | Người gán ước lượng mức che trong ảnh, không gán sẵn mức từ bảng này |
 | img_021 và img_030 | Dòng xe/bãi xe dày | R-05, R-07 | Tách cá thể rõ, đo vật nhỏ; ignore chỉ ngoại lệ khoanh được | Áp dụng R-07 cho ranh giới cụm; không ignore cả bãi |
 | img_022 | Mô tô gắn sidecar | R-08 | Một motorcycle cho tổ hợp | Không tạo class sidecar; chưa có ví dụ sidecar tách rời |
-| img_024 | Xe vàng nhỏ trên nóc wagon | R-05, R-09 | Các xe thật khác vẫn gán; xe vàng nếu đủ ứng viên car nhưng chưa rõ bản chất thì review; chưa đủ box thì issue | NEEDS_EVIDENCE: bản chất xe vàng; không tự chốt là thật/mô hình |
+| img_024 | Xe vàng nhỏ trên nóc wagon | R-05, R-09 | Các xe thật khác vẫn gán; xe vàng nếu đủ ứng viên car nhưng chưa rõ bản chất thì review; chưa đủ box thì issue | Cần kiểm khi gán: bản chất xe vàng; không tự chốt là thật/mô hình |
 | img_028 | Pickup, ngựa trắng trong thùng, xe đỏ sau | R-01–03, R-06 | Pickup truck, xe đỏ car theo phần thấy; không box ngựa; không bao ngựa vào xe | Ngựa thật/mô hình chưa rõ nhưng đều ngoài scope; chỉ tính che pickup nếu có che thật, không suy từ vị trí đứng |
 | img_037 | Pickup gắn khoang cao và bus nền | R-01–02, R-08 | Truck cho pickup; bus ngoài scope | Canopy không tự biến pickup thành van |
-| img_040 | Người đội mũ, taxi, tuk-tuk/bus nền, gương/phần xe hai bánh sát dưới | R-02–06 | Person/taxi riêng, truncated theo biên; không dựng toàn xe từ mũ/gương | NEEDS_EVIDENCE: đủ class/box motorcycle chưa? Có ứng viên hợp lý thì review, nếu không thì issue |
+| img_040 | Người đội mũ, taxi, tuk-tuk/bus nền, gương/phần xe hai bánh sát dưới | R-02–06 | Person/taxi riêng, truncated theo biên; không dựng toàn xe từ mũ/gương | Cần kiểm khi gán: đủ class/box motorcycle chưa? Có ứng viên hợp lý thì review, nếu không thì issue |
 | img_017, img_027, img_033, img_038 | Tượng, mannequin, đồ chơi | R-09 | Không box như person/car/truck; không ignore thay class | Đối chiếu vật thật khác nếu có, không loại cả ảnh theo chủ đề |
 | img_014, img_015, img_020 | Blur, phản chiếu đường/gương | R-03, R-05, R-09 | Blur không tự là che; phản chiếu không sinh instance | Mức 3 chỉ khi không biết mức che nhưng còn nhận dạng class/box |
 
@@ -134,30 +123,31 @@ Mốc 50% che của R-03 là ranh giới ý nghĩa thuộc tính trong bản v1.
 
 ### R-11 — Độc lập, calibration và quyết định QC
 
-1. Sau khi khóa v1.0 và schema/config khớp, hai người tạo Task riêng, mỗi người gán 40 ảnh độc lập. Không xem nhãn người kia trước nộp riêng. Human quyết định/vẽ box, không pre-label.
+1. Sau khi khóa v1.0 và schema/config khớp, hai người tạo Task riêng, mỗi người gán 40 ảnh độc lập. Không xem nhãn người kia trước nộp riêng. Mỗi thành viên tự quyết định và vẽ box, không dùng pre-label.
 2. Kiểm từng box: đúng class/scope, phần thấy, gương/bánh, người–xe riêng, che/cắt, chiều cao, review; giữ ảnh không box trong COCO. Export COCO 1.0 riêng, tắt Save images; validator kiểm cấu trúc, người kiểm ý nghĩa ảnh.
 3. Chỉ đo IAA khi đủ 80/80 lượt hợp lệ. Chỉ tính IoU/class trên matched pairs; không có cặp ghi N/A. Báo riêng box chưa ghép và bất đồng ignore. Giữ IAA trước calibration, đối chiếu ca tham chiếu cùng sai.
 4. Calibration: mỗi ca có case_id/ảnh, quyết định, Rule ID, phiên bản, người chốt, phiếu sửa, kiểm lại và phạm vi ảnh/lô. Người chốt/reviewer do nhóm xác nhận; hiện chưa phân công. Semantic change cần rà cả lô theo GUIDE. Sau đó mới tạo v1.1/nhãn cuối từ artifact thật.
 5. QC duyệt toàn bộ 40 ảnh; nhóm hai người đổi vai kiểm, ưu tiên khác người sửa và ghi mã. Báo ảnh lỗi/ảnh duyệt và annotation lỗi/annotation duyệt, không trộn mẫu số. Một ảnh lỗi là 1/40=2.5%, vượt ngưỡng.
 6. Hold khi thiếu bằng chứng/guideline/dữ liệu hoặc chỉ lấy mẫu demo. Rework khi >2% ảnh lỗi hoặc lỗi lặp. Release chỉ khi số liệu đạt, đủ bằng chứng và reviewer xác nhận. Tài liệu này chưa ghi nhận quyết định QC thực tế.
 
-### Lịch sử
 
-| Phiên bản / mốc | Thay đổi | Căn cứ / hiệu lực |
+### Từ bản cá nhân đến quy tắc chung
+
+| Nội dung | Đề xuất ban đầu | Lựa chọn v1.0 và lý do |
 |---|---|---|
-| v0 | Starter lớp/thuộc tính | Giữ nguyên làm nguồn, không sửa |
-| individual-101 / individual-102-draft | Hai nguồn đề xuất độc lập | Giữ bản gốc và khác biệt trong harmonization |
-| team-v1.0-draft-2026-11-16-r1 | Tổng hợp R-01–11, đề xuất che dưới/từ 50%, mức 3 không xác định; ví dụ thật và checklist | Theo yêu cầu người dùng; PENDING TEAM APPROVAL; chưa hiệu lực annotation |
-| r1 — chỉnh trình bày 2026-11-16 | Chuẩn hóa tiêu đề theo template, nêu file chung đúng folder, cách góp ý theo Rule ID và liên kết ảnh | Giữ nguyên nghĩa R-01–11, bảng occlusion và trạng thái chờ xác nhận |
-| v1.0 — khóa 2026-11-16 | Giữ nội dung quy tắc r1; ghi nhận đồng ý của cả hai và đồng bộ taxonomy/config | Theo xác nhận chung của người dùng; có hiệu lực cho lượt gán độc lập |
+| Che khuất | 101: 25%, mức 3 không rõ; 102: 30%/70%, mức 3 che trên 70% | Dùng ranh giới 50%; mức 3 giữ nghĩa không xác định của v0. Tách mức độ che khỏi khả năng ước lượng. |
+| Van/minibus | Hai bản phân biệt cấu tạo thân van với cabin/thùng tải; v0 chưa rõ minibus | Xét cấu tạo theo R-01/R-02, không ép minibus img_009 vào van vì nhỏ trong ảnh. |
+| Sidecar, trailer | 101 có đề xuất riêng cho tổ hợp; chưa có mẫu tách rời đủ căn cứ | Tổ hợp đang gắn theo R-08; phần tách rời chưa rõ thì ghi issue, không tạo lớp mới. |
+| Vật nhỏ/đám đông | Cần giới hạn cách khoanh ignore để không che vật rõ | Giữ ngưỡng 20 px và điều kiện R-07; không dùng ignore thay quyết định về lớp. |
 
-## 6. Ghi nhận xác nhận và điều kiện khóa
+### Xác nhận và lịch sử phiên bản
 
-Xác nhận phải chỉ rõ mã revision ở đầu file và bao gồm R-01–11, chính sách xử lý ca chưa rõ, enum, phạm vi lớp và ngưỡng QC. Đồng ý bản cá nhân không tự là đồng ý bản nhóm này. Ngày/bằng chứng chỉ điền từ xác nhận thật; bản sửa nghĩa sau xác nhận cần xác nhận lại revision mới.
+101 và 102 đã cùng đồng ý toàn bộ bản chung trước khi chuyển sang gán độc lập. Bản v1.0 này giữ nguyên nội dung quy tắc đã chốt; không ghi kết quả gán hoặc calibration khi chưa có nhãn.
 
-| Thành viên | Trạng thái | Ngày xác nhận | Bằng chứng / tham chiếu revision |
-|---|---|---|---|
-| 101 | AGREED, theo xác nhận chung do người dùng cung cấp | 2026-11-16 (ngày ghi nhận) | Người dùng: “Cả hai đã đồng ý toàn bộ bản chung”; bản r1 → v1.0 |
-| 102 | AGREED, theo xác nhận chung do người dùng cung cấp | 2026-11-16 (ngày ghi nhận) | Cùng xác nhận chung trên; không phải chữ ký riêng của 102 |
+| Phiên bản | Thay đổi | Lý do (ca nào) |
+|---|---|---|
+| v0 | Guideline khởi đầu của lab | Làm nguồn cho hai đề xuất cá nhân |
+| v1.0 — 2026-11-16 | Thống nhất R-01–11, bảng che 50% và nghĩa mức 3, phạm vi lớp, box và ignore; đồng bộ taxonomy v1.0 | Các bất đồng của hai bản cá nhân và ca img_002, img_005, img_009, img_022, img_024, img_028, img_040 |
+| v1.0 — biên tập trình bày | Rút gọn lời dẫn, giữ năm phần theo template; làm rõ nguồn quyết định chung | Không đổi lớp, enum, default, ngưỡng hoặc nghĩa quy tắc đã khóa |
 
-**Đã khóa đặc tả v1.0.** R-01–11 và chính sách review/issue cho ca chưa rõ là căn cứ dùng chung. Project 2 và hai Task 15/16 trên CVAT local đã được kiểm đúng 40 frame mỗi người; [mở Job theo mã](../../docs/team/CVAT_TASKS.md) để human gán độc lập. Chưa có export nhãn thật hoặc annotation hoàn tất. Xem [ANNOTATION_PREPARATION.md](../../docs/team/ANNOTATION_PREPARATION.md). Thay đổi nghĩa sau khóa phải được ghi phiên bản và phạm vi kiểm lại theo GUIDE.
+Giữ v1.0 trong suốt lượt gán độc lập. Sau khi đủ nhãn, ghi các quyết định calibration và tạo v1.1 theo GUIDE; thay đổi nghĩa phải nêu phạm vi ảnh/lô cần kiểm lại.

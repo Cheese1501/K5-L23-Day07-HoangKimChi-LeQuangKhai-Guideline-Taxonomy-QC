@@ -45,8 +45,7 @@ Trọng tâm là **guideline**: nhãn chỉ tốt khi mọi người hiểu quy 
 | Các lệnh và file đầu ra | [scripts/README.md](scripts/README.md) |
 | Guideline khởi đầu (v0), khung viết guideline | [guideline/](guideline/) |
 | **Guideline chung nhóm 101–102 — v1.0 đã khóa** | [guideline_v1.0_agreed.md](submission/guidelines/guideline_v1.0_agreed.md) |
-| Đối chiếu quy tắc và điều kiện bắt đầu annotation của nhóm | [Harmonization](docs/team/GUIDELINE_HARMONIZATION.md), [checklist chuyển pha](docs/team/NEXT_PHASE_CHECKLIST.md) |
 | **Bắt đầu annotation độc lập — Project và Job 101/102** | [CVAT_TASKS.md](docs/team/CVAT_TASKS.md) |
-| **Báo cáo học tập và thực hành nhóm 101–102 (dự thảo theo mẫu lab)** | [QC_REPORT.md](submission/qc/QC_REPORT.md) |
+| **Báo cáo học tập và thực hành nhóm 101–102 — Hold** | [QC_REPORT.md](submission/qc/QC_REPORT.md) |
 | Nguồn và giấy phép ảnh | [data/README.md](data/README.md) |
 | **Coach:** chuẩn bị lớp, ma trận kiểm thử | [docs/COACH_GUIDE.md](docs/COACH_GUIDE.md), [docs/TEST_MATRIX.md](docs/TEST_MATRIX.md) |

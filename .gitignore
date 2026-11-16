@@ -3,3 +3,7 @@ __pycache__/
 *.pyc
 .DS_Store
 .venv/
+
+# Local experiments and AI backup are outside Day07 deliverables.
+/label_tool/
+/DAY07-102-YOLO-SAM3-40images-CVAT-backup.zip

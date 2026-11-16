@@ -21,7 +21,7 @@
 
 - [Guideline chung v1.0](submission/guidelines/guideline_v1.0_agreed.md).
 - Guideline cá nhân: [101](submission/guidelines/individual/guideline_101.md), [102](submission/guidelines/individual/guideline_102.md).
-- Ghi chú cá nhân: [101](submission/individual_notes/101.md), [102](submission/individual_notes/102.md). Mỗi người chịu trách nhiệm hoàn thiện phần của mình; bản 102 hiện còn là mẫu chuẩn bị.
+- Ghi chú cá nhân: [101](submission/individual_notes/101.md), [102](submission/individual_notes/102.md). Mỗi người chịu trách nhiệm hoàn thiện phần của mình; bản 102 đã có ghi chú và COCO 40 ảnh/352 annotation sau review, đạt kiểm tra cấu trúc; nguồn và giới hạn tại `submission/qc/annotation_provenance_102.json`.
 - [Báo cáo nhóm theo mẫu QC](submission/qc/QC_REPORT.md) và [phân công](submission/qc/assignment.csv).
 
 Phần thử YOLO/SAM và review nhãn từ nguồn khác không tính là kết quả gán độc lập Day 07.

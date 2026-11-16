@@ -1,0 +1,38 @@
+{
+  "member": "102",
+  "artifact": "submission/labels/102.json",
+  "status": "HOLD_PENDING_CALIBRATION_AND_QC",
+  "source_task_id": 35,
+  "source_job_id": 34,
+  "images": 40,
+  "annotations": 352,
+  "object_annotations": 350,
+  "ignore_regions": 2,
+  "class_counts": {
+    "truck": 10,
+    "person": 185,
+    "car": 70,
+    "motorcycle": 82,
+    "van": 3,
+    "ignore_region": 2
+  },
+  "occluded_level_counts": {
+    "3": 134,
+    "0": 63,
+    "2": 25,
+    "1": 128
+  },
+  "truncated_counts": {
+    "no": 330,
+    "yes": 20
+  },
+  "can_review_true": 292,
+  "coco_sha256": "3fe63fec2771eb7e47a2167526d6e208a80b5d1a309a985b721b4bf5f20f67c6",
+  "structure_validation": "PASS: python scripts/validate_labels.py submission/labels/102.json",
+  "human_review_complete_reported_by_member": true,
+  "independent_manual_annotation": false,
+  "annotation_process": "YOLO11n + SAM 3 proposed initial boxes; member 102 reviewed/corrected. YOLO fine-tuned on 24 reviewed training images plus 5 validation images (img_021 excluded), then last 10 images were proposed again and member reported reviewing all frames.",
+  "source_metadata": "manual after human finalization; this does not mean boxes were drawn from scratch",
+  "remaining_review_flags": "292 can_review=true and 134 occluded_level=3; preserve as exported for calibration",
+  "iaa_calibration_qc_complete": false
+}

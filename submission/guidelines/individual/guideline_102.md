@@ -1,11 +1,11 @@
 # Guideline gán nhãn cá nhân — bản đề xuất — 102
 
-> Thành viên 102 đồng ý với các quy tắc đề xuất trong bản này và chia sẻ để nhóm thảo luận. AI hỗ trợ soạn thảo; mục 4 còn chờ bổ sung ID ảnh và quan sát thực tế. Đây là bản đề xuất cá nhân, chưa phải guideline v1.0 chung đã khóa của nhóm.
+> Thành viên 102 đồng ý với các quy tắc đề xuất trong bản này và chia sẻ để nhóm thảo luận. AI hỗ trợ soạn thảo; mục 4 được bổ sung sau review ngày 2026-11-17, không phải nhật ký Pha 1. Đây là bản đề xuất cá nhân, chưa phải guideline v1.0 chung đã khóa của nhóm.
 
 - Phiên bản: `individual-102-draft`.
 - Ngày soạn: 2026-11-16.
 - Người đề xuất / duyệt quy tắc: 102; AI hỗ trợ soạn thảo.
-- Trạng thái: quy tắc đã được 102 chấp thuận; ví dụ ảnh chưa hoàn tất; chờ nhóm thống nhất.
+- Trạng thái: quy tắc đã được 102 chấp thuận; nhóm đã thống nhất bản chung v1.0; giữ bản cá nhân để đối chiếu lịch sử.
 - Phạm vi: bộ 40 ảnh trong `data/images/`, bounding box bằng CVAT, xuất COCO 1.0.
 
 ## 1. Mục tiêu
@@ -97,20 +97,17 @@ Xe vận chuyển và từng xe được chở được xét riêng nếu đều
 - Chưa xác định được box hợp lý: ghi ảnh, vùng, lý do vào ghi chú riêng; sau khi khóa nhãn cá nhân, tập hợp vào `submission/qc/image_issues.csv` với cột `image,annotator,region,note`.
 - Không trao đổi nhãn với người kia trong lượt gán độc lập. Giải quyết ca ở buổi calibration sau khi cả hai nộp.
 
-## 4. Ca khó
+## 4. Ca khó — bổ sung sau review ngày 2026-11-17
 
-**Chưa điền ID ảnh vì người học chưa xác nhận quan sát.** Bảng này là gợi ý để bạn tìm ca thật, thay phần giữ chỗ và tự viết quyết định. Không nộp nguyên bảng giữ chỗ như bằng chứng đã xem ảnh.
+Bổ sung từ guideline nhóm v1.0 và bản COCO 102 hiện tại, sau khi 102 xác nhận đã xem/chỉnh toàn bộ frame. Đây không phải nhật ký đã ghi ở Pha 1. Quy tắc ở mục 2–3 giữ đề xuất ban đầu để truy vết khác biệt; khi gán áp dụng guideline chung v1.0.
 
-| Ảnh | Tình huống cần tìm và kiểm tra | Rule ID | Quyết định đề xuất để thử | Lý do |
+| Ảnh | Tình huống | Rule ID trong bản cá nhân | Quyết định đề xuất ban đầu / đối chiếu hiện tại | Lý do |
 |---|---|---|---|---|
-| Chưa điền | Người ngồi trên xe máy. | R-05 | Tách người và xe; từng box phải đủ điều kiện. | Hai lớp có biên và ý nghĩa riêng. |
-| Chưa điền | Xe tải vận chuyển các xe khác. | R-06 | Xét xe chở và từng xe được chở riêng. | Vị trí được chở không tự loại đối tượng thật. |
-| Chưa điền | Người hoặc xe bị vật khác che. | R-03, R-04 | Box bao phần nhìn thấy; chọn mức che; không vẽ bù phần khuất. | Thống nhất phạm vi box giữa người gán. |
-| Chưa điền | Tượng, ma-nơ-canh, hình in hoặc phản chiếu. | R-07 | Loại nếu xác định được là hình mô phỏng hoặc phản chiếu. | Mục tiêu của đề xuất là vật thật hiện diện trực tiếp. |
-| Chưa điền | Tuk-tuk, xe buýt, xe đạp hoặc vật ngoài lớp. | R-02 | Không ép vào lớp gần giống; kiểm lại phạm vi đề xuất. | Giữ định nghĩa lớp nhất quán. |
-| Chưa điền | Vật mục tiêu nhỏ hơn 20 px. | R-08 | Khoanh ignore đúng vùng ngoại lệ. | Tuân thủ ngưỡng kích thước của lab. |
+| img_002 | Xe chở xe | R-06 | Xét xe vận chuyển và từng xe được chở riêng. Bản 102 hiện có 8 car, 1 truck, 1 person. | Phân biệt từng instance thật, không gộp toàn bộ thành một box. |
+| img_005 và img_026 | Người đi xe máy | R-05 | Người và xe riêng. img_026 hiện có 2 person + 1 motorcycle; img_005 cũng có các box riêng. | Người và xe thuộc hai lớp, cho phép chồng lấn. |
+| img_017 | Tượng người | R-07 | Loại tượng khỏi person; ảnh này không có annotation trong bản 102 hiện tại. | Phạm vi chỉ người thật hiện diện trực tiếp. |
 
-Sau khi xem ảnh, bổ sung ít nhất một lần áp dụng lại R-05 trên ảnh khác: ID ảnh thứ nhất, ID ảnh thứ hai, số người/xe nhìn thấy đủ điều kiện và lý do kết quả nhất quán. Số ca trong bảng phải phản ánh điều bạn thực sự tìm được, không cần giữ mọi dòng gợi ý.
+Số box trên là số liệu của nhãn hiện tại, không phải xác nhận QC về độ đúng hoặc bằng chứng đã dự đoán số box trước lượt gán. Bản cá nhân dùng ngưỡng che 30/70%; bản nhóm v1.0 đã thay bằng 50% và mức 3 không xác định. Xem ghi chú cá nhân 102 để đối chiếu quá trình.
 
 ## 5. QC và phiên bản
 
@@ -147,3 +144,7 @@ Ngưỡng box nhỏ 0,7 không thay thế ngưỡng IoU trung bình IAA 0,85. B�
 | `individual-102-draft` | AI hỗ trợ soạn; 102 chấp thuận quy tắc và chia sẻ để thảo luận. | Chờ bổ sung ca ảnh thật và thống nhất nhóm; chưa khóa để gán. |
 
 Khi tự hoàn thiện bản cá nhân, ghi nhận sự hỗ trợ AI và cách kiểm lại trong `submission/individual_notes/102.md`. Khi nhóm chốt, tạo v1.0; sau calibration tạo v1.1. Sửa nghĩa quy tắc là thay đổi `semantic` và cần rà lại toàn lô theo hướng dẫn lab; sửa câu chữ giữ nghĩa là `editorial`.
+
+### Bổ sung hồ sơ 2026-11-17
+
+Đã bổ sung ca img_002, img_005/img_026, img_017 từ hồ sơ review và export 102. Không thay đổi đề xuất ban đầu; áp dụng guideline chung v1.0 khi gán. Chưa thực hiện calibration hoặc QC cuối.

@@ -1,18 +1,59 @@
 {
-  "version": "v0",
+  "version": "v1.0",
   "ignore_class": "ignore_region",
   "classes": [
-    {"name": "car", "definition": "Ô tô con, SUV."},
-    {"name": "truck", "definition": "Xe tải, xe có thùng hàng riêng."},
-    {"name": "van", "definition": "Xe thùng kín cỡ nhỏ."},
-    {"name": "motorcycle", "definition": "Xe máy, mô tô."},
-    {"name": "person", "definition": "Người đi bộ hoặc người ngồi trên xe."},
-    {"name": "ignore_region", "definition": "Vùng bỏ qua (không phải vật): nơi không gán từng vật, bỏ sót ở đây không tính là lỗi."}
+    {
+      "name": "car",
+      "definition": "Ô tô chở người dạng sedan, hatchback, SUV/crossover, wagon hoặc taxi; không có thùng hàng riêng. Không gồm bus/minibus."
+    },
+    {
+      "name": "truck",
+      "definition": "Xe chở hàng có cabin và phần hàng tách biệt về cấu trúc; gồm pickup kể cả gắn canopy, tải thùng và đầu kéo đang nối trailer/carrier."
+    },
+    {
+      "name": "van",
+      "definition": "Xe dạng van cỡ nhỏ có cabin và khoang sau kín liền thân, chở hàng hoặc người, không có cabin/thùng tải riêng. Không gồm SUV, pickup gắn canopy hoặc bus/minibus như img_009."
+    },
+    {
+      "name": "motorcycle",
+      "definition": "Xe hai bánh có động cơ, gồm mô tô và scooter; sidecar gắn liền thuộc cùng một instance xe. Không gồm người ngồi trên xe, xe đạp hoặc tuk-tuk."
+    },
+    {
+      "name": "person",
+      "definition": "Người thật có phần cơ thể nhìn thấy và đủ căn cứ nhận biết, gồm người đi bộ, người lái và hành khách; mỗi cá thể một instance."
+    },
+    {
+      "name": "ignore_region",
+      "definition": "Vùng ngoại lệ cho vật mục tiêu có box phần thấy thấp hơn 20 px hoặc cụm không tách đáng tin cậy theo R-07; không phải object, không thay class thiếu và không phủ vật đủ điều kiện."
+    }
   ],
   "attributes": [
-    {"name": "occluded_level", "type": "select", "values": ["0", "1", "2", "3"], "default": "0"},
-    {"name": "truncated", "type": "select", "values": ["no", "yes"], "default": "no"},
-    {"name": "can_review", "type": "checkbox", "values": [], "default": "false"}
+    {
+      "name": "occluded_level",
+      "type": "select",
+      "values": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "default": "0"
+    },
+    {
+      "name": "truncated",
+      "type": "select",
+      "values": [
+        "no",
+        "yes"
+      ],
+      "default": "no"
+    },
+    {
+      "name": "can_review",
+      "type": "checkbox",
+      "values": [],
+      "default": "false"
+    }
   ],
   "rules": {
     "min_box_height_px": 20,

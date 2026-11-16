@@ -1,6 +1,6 @@
 # Chuẩn bị CVAT và hai lượt gán độc lập
 
-**PENDING TEAM APPROVAL — hướng dẫn chuẩn bị, chưa phải lệnh bắt đầu gán.** Áp dụng sau khi [checklist](NEXT_PHASE_CHECKLIST.md) đáp ứng điều kiện khóa [guideline nhóm](../../submission/guidelines/guideline_v1.0_agreed.md). Không tự annotation thay101/102.
+**GUIDELINE v1.0 ĐÃ KHÓA.** Người dùng xác nhận cả 101 và 102 đã đồng ý toàn bộ bản chung ngày ghi nhận 2026-11-16. Dùng [guideline nhóm](../../submission/guidelines/guideline_v1.0_agreed.md) và kiểm [điều kiện Task](NEXT_PHASE_CHECKLIST.md) trước khi vẽ. Không tự annotation thay101/102. CVAT: http://localhost:8080.
 
 ## 1. Những gì đã có và những gì chưa làm
 
@@ -9,29 +9,38 @@
 | 101 | submission/qc/assignments/101.txt —40 ảnh | work/101/images/ | submission/labels/101.json —chưa có |
 | 102 | submission/qc/assignments/102.txt —40 ảnh | work/102/images/ | submission/labels/102.json —chưa có |
 
-Local assignment.csv chia mỗi ảnh cho101 và102. Hai bộ giống tập ảnh là đúng thiết kế nhóm hai người; đó là80 lượt được giao, không phải80 lượt hoàn tất. Giữ nguyên file/ảnh đang có, không tạo lại assignment hoặc ghi đè work102. Xác nhận/chia sẻ một bản assignment chung trước upload.
+Local assignment.csv chia mỗi ảnh cho 101 và 102. Hai bộ giống tập ảnh là đúng thiết kế nhóm hai người; đó là 80 lượt được giao, không phải 80 lượt hoàn tất. Giữ nguyên file/ảnh đang có, không tạo lại assignment hoặc ghi đè work102. Assignment đã lưu trên main; cả hai dùng chính bản chung này, không tạo lại phân công.
 
-Chưa truy cập instance CVAT của lớp trong vòng này, chưa xác nhận Project/Task/frame count hay export thực tế. Không có COCO/IAA/QC được tạo. Công cụ/test cục bộ không chứng minh quyền truy cập dịch vụ.
+CVAT local đã phản hồi tại http://localhost:8080, phiên bản 2.74.1. Đã đăng nhập và tạo Project 2, Task 15/16; xem [liên kết từng Job](CVAT_TASKS.md). Chưa có export nhãn thật. Không có COCO/IAA/QC được tạo. Mỗi người đăng nhập để mở đúng Job của mình.
 
-## 2. Sau khi hai người xác nhận và khóa
+### Gói upload đã kiểm tra
+
+| Thành viên | Gói ảnh local | Số ảnh | Nội dung |
+|---|---|---|---|
+| 101 | work/annotation_upload/day07_101_images_v1.0.zip | 40 | Chỉ JPEG, tên gốc, hash khớp nguồn |
+| 102 | work/annotation_upload/day07_102_images_v1.0.zip | 40 | Chỉ JPEG, tên gốc, hash khớp nguồn |
+
+Hai gói có cùng tập ảnh theo thiết kế nhóm hai người nhưng dùng cho hai lượt gán riêng. Không có annotation trong ZIP. Không đưa work vào gói nộp.
+
+## 2. Cấu hình đã chuẩn bị từ taxonomy v1.0
 
 Người được nhóm phân công làm theo thứ tự:
 
 ```powershell
 $env:PYTHONUTF8 = '1'
 $env:PYTHONIOENCODING = 'utf-8'
-# Chỉ chạy generator sau khi taxonomy đã được nhóm đổi version v1.0 và chốt definitions.
+# Taxonomy đã là v1.0; cấu hình đã sinh. Chỉ chạy lại nếu cần tái lập đúng cùng taxonomy.
 python scripts/make_cvat_labels.py
 ```
 
 Giữ enum occluded_level0/1/2/3, truncated no/yes và checkbox can_review. Kiểm output sáu class; năm class object có đủ ba thuộc tính; ignore_region không thuộc tính. Cấu hình enum không chứa nghĩa% che: người gán phải dùng bảng R-03 (0 không che,1 dưới50%,2 từ50%,3 không xác định; không tính truncation). Không thay bằng cờ occluded mặc định của CVAT: đó là trường khác.
 
-Theo [CVAT_SETUP](../CVAT_SETUP.md), tạo Project → Labels → Raw từ JSON vừa sinh. Nhóm chọn mã/tên Project gắn v1.0, không họ tên/tài khoản. Kiểm trực tiếp select/checkbox/default trên Project, không chỉ nhìn file JSON.
+Theo [CVAT_SETUP](../CVAT_SETUP.md), tạo Project → Labels → Raw từ JSON vừa sinh. Project đã tạo: `day07-team-101-102-v1.0` (ID2); Task 101 ID15/Job 10, Task 102 ID16/Job 11. Không tạo thêm bản trùng; dùng [CVAT_TASKS.md](CVAT_TASKS.md) mở đúng Job. Kiểm trực tiếp select/checkbox/default trên Project, không chỉ nhìn file JSON.
 
 ## 3. Tạo hai Task và gán độc lập
 
-1. Mỗi người tạo Task riêng dùng mã `101` hoặc `102` và phiên bản v1.0; chọn đúng Project đã khóa.
-2. Upload chỉ bộ ảnh của mình; đối chiếu đúng40 frame và tên ảnh với assignments/<mã>.txt, giữ tên gốc img_XXX.jpg.
+1. Hai Task riêng đã tạo trong Project 2 v1.0. Mỗi người mở đúng Job 101/102, không tạo lại Task khi đã có bản đúng.
+2. Ảnh đã upload, đối chiếu đúng 40 frame/tên/thứ tự ở mỗi Task. Kiểm lại frame đầu/cuối khi mở; không upload bổ sung hoặc đổi tên ảnh.
 3. Trước lượt gán, mỗi người tự kiểm class/thuộc tính có thể chọn và quyền Save/Export. Chưa xác minh ở đây; khi có lỗi quyền hỏi coach, không chuyển sang dùng nhãn của bạn cùng nhóm.
 4. Human vẽ Rectangle; box phần thấy gồm gương/bánh gắn liền, người–xe riêng; không pre-label bằng mô hình. Đo chiều cao trên ảnh gốc, không theo zoom.
 5. Box hợp lý chưa chắc dùng can_review; không xác định box/class thì ghi riêng ảnh/vùng/lý do. Không cùng xem nhãn trong lượt độc lập. Sau khóa nhãn cá nhân mới tập hợp issue cấp ảnh vào file chung.
@@ -41,8 +50,8 @@ Theo [CVAT_SETUP](../CVAT_SETUP.md), tạo Project → Labels → Raw từ JSON 
 
 Sau khi người gán thực sự đã làm và Save:
 
-1. Actions → Export task dataset → **COCO1.0**, tắt Save images. Tải từ Requests; giải nén lấy annotations/instances_<subset>.json.
-2. Mỗi người giữ bản export riêng theo mã; không dùng copy JSON của người kia. Giữ đủ40 ảnh trong phần images, kể cả ảnh không annotation.
+1. Actions → Export task dataset → **COCO 1.0**, tắt Save images. Tải từ Requests; giải nén lấy annotations/instances_<subset>.json.
+2. Mỗi người giữ bản export riêng theo mã; không dùng copy JSON của người kia. Giữ đủ 40 ảnh trong phần images, kể cả ảnh không annotation.
 3. Chạy validator trên chính bản thật:
 
 ```powershell
@@ -63,7 +72,7 @@ python scripts/qc_compare.py
 python scripts/viz_disagreement.py --images flagged
 ```
 
-Chỉ chạy khi đủ hai bộ đúng40 ảnh (80/80 lượt hợp lệ). Đọc matched pairs và N/A, unmatched/ignore; đối chiếu ca tham chiếu cùng sai. Sau đó mới calibration/v1.1, nhãn cuối và QC toàn lô theo GUIDE. Không chạy pipeline để tạo đầu ra giả trong giai đoạn chuẩn bị này.
+Chỉ chạy khi đủ hai bộ đúng 40 ảnh (80/80 lượt hợp lệ). Đọc matched pairs và N/A, unmatched/ignore; đối chiếu ca tham chiếu cùng sai. Sau đó mới calibration/v1.1, nhãn cuối và QC toàn lô theo GUIDE. Không chạy pipeline để tạo đầu ra giả trong giai đoạn chuẩn bị này.
 
 ## 6. Bằng chứng cần ghi khi thực hiện thật
 

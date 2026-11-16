@@ -7,7 +7,7 @@
 - Mục đích và giới hạn sử dụng: xây dựng quy tắc nhất quán cho bài toán phát hiện người và phương tiện bằng bounding box 2D; thực hành gán độc lập, đo đồng thuận, xử lý bất đồng và đánh giá chất lượng nhãn. Bộ 40 ảnh có nhiều ca biên; kết quả thực hành không đủ để kết luận mô hình an toàn khi triển khai giao thông thực tế.
 - Nguồn và phép sử dụng dữ liệu: 40 ảnh `img_001.jpg`–`img_040.jpg` trong `data/images/`, nguồn Wikimedia Commons và giấy phép theo từng dòng của `data/ATTRIBUTION.csv`. Khi chia sẻ phải giữ ghi công và điều kiện giấy phép; không đổi tên hoặc thêm bớt ảnh.
 - Manifest và checksum nhãn cuối: chưa có `batch_manifest.json` hoặc nhãn cuối; chưa có checksum nhãn để báo cáo.
-- Guideline và taxonomy khi gán / khi bàn giao: bản chung hiện là `team-v1.0-draft-2026-11-16-r1`, **PENDING TEAM APPROVAL**; taxonomy vẫn `v0`. Chưa có phiên bản khóa cho lượt gán hoặc phiên bản bàn giao.
+- Guideline và taxonomy khi gán / khi bàn giao: guideline và taxonomy đã khóa `v1.0` theo xác nhận chung do người dùng cung cấp ngày ghi nhận 2026-11-16 cho nội dung bản r1. Chưa có nhãn sau gán hoặc phiên bản bàn giao sau calibration.
 
 ### Nội dung học tập và phân tích ca ảnh
 
@@ -23,7 +23,7 @@ Vấn đề của guideline v0 là nhiều diễn giải chưa đủ cụ thể 
 | img_021 và img_030 | Nhiều người/xe che nhau, khó tách cá thể | R-07: tách vật rõ, đo chiều cao trên ảnh gốc; chỉ ignore vùng ngoại lệ theo điều kiện chung | Mật độ cao không cho phép gộp toàn cụm thành một object hoặc phủ ignore lên vật đủ điều kiện. |
 | img_024, img_028, img_040 | Xe vàng chưa rõ bản chất, ngựa ngoài taxonomy, phần xe sát biên chưa đủ nhận dạng | R-05: phân biệt box ứng viên cần review với vấn đề chưa vẽ được box; không suy đoán phần không thấy | Cần ghi đúng giới hạn quan sát. Ba ca còn cần thành viên đối chiếu; chưa có quyết định ảnh cuối cùng của nhóm. |
 
-Bảng che khuất đề xuất chung là `0`: không che; `1`: che trên 0% và dưới 50%; `2`: che từ 50% trở lên; `3`: không xác định được mức che. Tỷ lệ chỉ tính phần đối tượng trong khung bị vật khác che, không tính phần ngoài khung do truncation. Đây là nội dung đang chờ cả hai xác nhận, chưa phải kết quả calibration.
+Bảng che khuất đề xuất chung là `0`: không che; `1`: che trên 0% và dưới 50%; `2`: che từ 50% trở lên; `3`: không xác định được mức che. Tỷ lệ chỉ tính phần đối tượng trong khung bị vật khác che, không tính phần ngoài khung do truncation. Hai người đã đồng ý quy tắc này theo xác nhận chung của người dùng; chưa phải kết quả calibration trên nhãn.
 
 ## 2. Phân công và đồng thuận trước calibration
 
@@ -32,7 +32,9 @@ Bảng che khuất đề xuất chung là `0`: không che; `1`: che trên 0% và
 - Box chưa ghép, loại do ignore, bất đồng vùng ignore: chưa có kết quả so sánh nhãn; chưa thể xác định số lượng.
 - Ca hai người có thể cùng sai sau khi đối chiếu tham chiếu: chưa thực hiện đối chiếu nhãn với ca tham chiếu. Rủi ro cần kiểm là cùng bỏ người trên xe, cùng gán tượng thành vật thật hoặc cùng phủ ignore quá rộng; đây là tình huống cần kiểm, không phải lỗi đã được xác nhận.
 
-Hai guideline cá nhân đã có nội dung để đối chiếu. Khác biệt nổi bật là mốc che nhẹ/nhiều và nghĩa mức 3; ngoài ra cần thống nhất van/minibus, sidecar và điều kiện ignore đám đông. Bản nhóm dùng bảng che 50% nêu ở mục 1; chưa có bằng chứng cả hai thông qua toàn bộ bản chung. Việc hai bản cá nhân cùng đề xuất pickup→truck hoặc tách người–xe chưa thay thế việc khóa guideline nhóm.
+Hai guideline cá nhân đã có nội dung để đối chiếu. Khác biệt nổi bật là mốc che nhẹ/nhiều và nghĩa mức 3; bản chung đã chốt phạm vi van/minibus, sidecar và điều kiện ignore đám đông. Bản nhóm dùng bảng che 50% nêu ở mục 1; người dùng đã xác nhận cả hai đồng ý toàn bộ bản chung, được khóa thành v1.0. Việc hai bản cá nhân cùng đề xuất pickup→truck hoặc tách người–xe chưa thay thế việc khóa guideline nhóm.
+
+Phần chuẩn bị Pha 3 đã có Project 2 và hai Task riêng:101 dùng Task 15/Job 10,102 dùng Task 16/Job 11. Mỗi Task40 frame khớp phân công; tại thời điểm kiểm tra chưa có box/track/tag. Chưa có lượt gán hoàn tất hoặcCOCO thật để tính đồng thuận.
 
 **Bài học về đồng thuận:** IAA chỉ tính IoU/lớp trên các cặp ghép được. Ngay cả khi đồng thuận cao, hai người vẫn có thể cùng bỏ sót vật hoặc cùng hiểu sai quy tắc. Khi có nhãn thật cần đọc cả box chưa ghép, bất đồng ignore và ca tham chiếu.
 
@@ -61,7 +63,7 @@ Hai guideline cá nhân đã có nội dung để đối chiếu. Khác biệt n
 
 - Quyết định: chưa có quyết định Release/Hold/Rework được người review xác nhận.
 - Lý do, người nhận và phạm vi sử dụng: hồ sơ hiện mới có guideline cá nhân, đề xuất nhóm và phân công; chưa đủ bằng chứng bàn giao nhãn. Bản dự thảo dành cho 101 và 102 đọc, bổ sung và xác nhận, chưa phải báo cáo nghiệm thu nhãn.
-- Nếu còn việc: 101 và 102 hoàn thiện ghi chú cá nhân, xác nhận quy tắc chung, đồng bộ taxonomy v1.0 và cấu hình CVAT; tiếp đó gán độc lập, export/validate COCO, đo IAA, calibration và QC toàn lô. Nhóm cần phân công người chốt và người review bằng mã thành viên.
+- Nếu còn việc: 101 và 102 hoàn thiện ghi chú cá nhân, kiểm Project/Task dùng đúng cấu hình v1.0 và đủ 40 frame/người; tiếp đó gán độc lập, export/validate COCO, đo IAA, calibration và QC toàn lô. Nhóm cần phân công người chốt và người review bằng mã thành viên.
 - Kiểm ngược từ báo cáo tới ảnh, rule và nhãn: ví dụ img_002 → R-06/R-08 trong guideline chung → ảnh gốc `data/images/img_002.jpg`; chưa có annotation để truy tiếp tới object ID. Khi có nhãn và quyết định thật, bổ sung mã ca, object ID, bản sửa và người kiểm lại.
 
 Tài liệu liên quan: [guideline chung](../guidelines/guideline_v1.0_agreed.md), [phân công](assignment.csv), [ghi chú 101](../individual_notes/101.md), [ghi chú 102](../individual_notes/102.md). Báo cáo cần tiếp tục cập nhật bằng kết quả thực hành; không dùng số liệu minh họa trong tài liệu lớp thay cho số liệu của nhóm.

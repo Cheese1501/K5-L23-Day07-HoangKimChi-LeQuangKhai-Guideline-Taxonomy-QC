@@ -7,7 +7,7 @@ Cập nhật: 2026-11-16. Phạm vi: 40 ảnh được giao cho 101. Nội dung 
 - [Phân tích 40 ảnh](IMAGE_ANALYSIS.md) nêu vật mục tiêu, ngoài taxonomy, ca che/cắt mép và hướng xử lý.
 - [Guideline cá nhân](../../submission/guidelines/individual/guideline_101.md) lưu lựa chọn ban đầu, gồm tách người–xe, xe chở xe, pickup, vật nhỏ, tượng và phản chiếu.
 - [Ghi chú cá nhân](../../submission/individual_notes/101.md) theo sáu mục của mẫu lab, tập trung ca khó, khác biệt quy tắc, bài học và kết quả các pha khi có.
-- [Guideline nhóm dự thảo](../../submission/guidelines/guideline_v1.0_agreed.md) là đầu vào thảo luận Pha 2, chưa được hai người xác nhận/khóa.
+- [Guideline nhóm dự thảo](../../submission/guidelines/guideline_v1.0_agreed.md) đã khóa v1.0 theo xác nhận chung do người dùng cung cấp ngày ghi nhận 2026-11-16; là quy tắc dùng cho Pha 3.
 
 ## 2. Vấn đề cần giải thích được
 
@@ -21,9 +21,9 @@ Cập nhật: 2026-11-16. Phạm vi: 40 ảnh được giao cho 101. Nội dung 
 
 ## 3. Phần thực hành còn cần hoàn thành
 
-Assignment có 40 ảnh cho 101; chưa có COCO 101 để xác nhận số ảnh đã gán, số box hoặc số lần can_review. Chưa có kết quả IAA/calibration/QC của cá nhân để báo cáo. Quyền tạo Task, lưu và export CVAT chưa có bằng chứng xác nhận trong hồ sơ.
+Assignment có 40 ảnh cho 101; chưa có COCO 101 để xác nhận số ảnh đã gán, số box hoặc số lần can_review. Chưa có kết quả IAA/calibration/QC của cá nhân để báo cáo. Task 101 đã tạo:Task 15/Job 10,40 frame. Chưa có thao tác Save/export nhãn thật được xác nhận.
 
-101 cần tự kiểm các ca, xác nhận bản cá nhân và quyết định Pha 2; sau khi nhóm khóa v1.0 mới gán độc lập, export/validate, gửi riêng rồi tham gia phân tích bất đồng. Ghi chú phải cập nhật từ trải nghiệm thực hành, không chuyển kế hoạch thành kết quả đã làm.
+101 cần hoàn thiện ghi chú và bằng chứng cá nhân, kiểm Task40 frame đúng v1.0 rồi gán độc lập, export/validate, gửi riêng rồi tham gia phân tích bất đồng. Ghi chú phải cập nhật từ trải nghiệm thực hành, không chuyển kế hoạch thành kết quả đã làm.
 
 ## 4. Tài liệu báo cáo
 

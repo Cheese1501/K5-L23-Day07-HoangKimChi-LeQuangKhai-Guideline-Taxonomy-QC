@@ -29,3 +29,7 @@ Tại thời điểm kiểm tra, mỗi Task có **0 shapes, 0 tracks, 0 tags**. 
 5. Mỗi người chạy validator cho bản thật của mình và gửi riêng trước khi tập hợp. Chưa đo IAA hoặc calibration khi chưa đủ hai bản hợp lệ.
 
 Hướng dẫn chi tiết: [ANNOTATION_PREPARATION.md](ANNOTATION_PREPARATION.md). Báo cáo học tập: [QC_REPORT.md](../../submission/qc/QC_REPORT.md); bổ sung trải nghiệm và số liệu thực hành sau khi có kết quả, không đưa thông tin đăng nhập vào tài liệu.
+
+## 4. Nhánh review AI riêng — không tính là lượt độc lập
+
+[Task 17 / Job 12 — DAY07-101-REVIEW-YOLO-SAM3](http://localhost:8080/tasks/17/jobs/12) đã khôi phục từ Task Backup: 40 ảnh, 399 rectangle ban đầu. Đây là bản nháp YOLO11n + SAM 3 để người học review; không dùng thay Task 15/16 hoặc tính thành hai lượt gán thủ công độc lập. Chi tiết nguồn, thuộc tính tạm và checklist tại [AI_DRAFT_REVIEW.md](AI_DRAFT_REVIEW.md). Chưa có review nội dung hoặc export sau review được xác nhận.

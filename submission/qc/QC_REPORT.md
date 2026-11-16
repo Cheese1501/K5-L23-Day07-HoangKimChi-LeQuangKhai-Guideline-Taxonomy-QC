@@ -67,3 +67,9 @@ Phần chuẩn bị Pha 3 đã có Project 2 và hai Task riêng:101 dùng Task 
 - Kiểm ngược từ báo cáo tới ảnh, rule và nhãn: ví dụ img_002 → R-06/R-08 trong guideline chung → ảnh gốc `data/images/img_002.jpg`; chưa có annotation để truy tiếp tới object ID. Khi có nhãn và quyết định thật, bổ sung mã ca, object ID, bản sửa và người kiểm lại.
 
 Tài liệu liên quan: [guideline chung](../guidelines/guideline_v1.0_agreed.md), [phân công](assignment.csv), [ghi chú 101](../individual_notes/101.md), [ghi chú 102](../individual_notes/102.md). Báo cáo cần tiếp tục cập nhật bằng kết quả thực hành; không dùng số liệu minh họa trong tài liệu lớp thay cho số liệu của nhóm.
+
+### Nhánh thực hành review có hỗ trợ AI
+
+Đã khôi phục một bản nháp riêng từ backup do người gửi mô tả được tạo bằng YOLO11n + SAM 3: Task 17/Job 12, 40 ảnh và 399 rectangle ban đầu, gồm 397 box đối tượng và 2 vùng ignore. Tọa độ/lớp/thuộc tính sau restore khớp gói nguồn; điều này chưa chứng minh chất lượng nhãn. Chưa có review nội dung hoặc export kết quả sau review trên máy 101.
+
+Các giá trị `occluded_level=3`, `truncated=no`, `can_review=true` trên box đối tượng là giá trị tạm cần kiểm. Van chưa có box riêng trong bản nháp; cần tìm vật bị bỏ sót và các ca tượng/đồ chơi/phản chiếu. Bản này chỉ dùng cho nhánh học tập review AI, không tính là hai lượt gán thủ công độc lập hoặc dùng làm số liệu IAA trước calibration của Day 07. Hướng dẫn và bằng chứng nguồn tại [AI_DRAFT_REVIEW.md](../../docs/team/AI_DRAFT_REVIEW.md).

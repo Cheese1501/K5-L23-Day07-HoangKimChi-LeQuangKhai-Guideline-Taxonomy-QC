@@ -2,6 +2,10 @@
 
 CVAT local: http://localhost:8080, phiên bản đã chuẩn bị 2.74.1. Các liên kết chỉ mở trên máy chạy CVAT; đây là hướng dẫn thao tác, không phải bằng chứng đã hoàn thành gán nhãn.
 
+**Cập nhật2026-11-16:** Task15 và16 theo phân công cũ hiện trả về404, không còn mở được. Cần chuẩn bị lại Task riêng nếu tiếp tục lượt gán thủ công độc lập; bảng dưới chỉ lưu tham chiếu cũ. Không thay Task độc lập bằng bản nhãn AI.
+
+Task đang dùng cho thực hành review: [Task17/Job12](http://localhost:8080/tasks/17/jobs/12). Bản sau sửa đã export vào `submission/labels/101.json`; trạng thái Hold, xem nguồn và giới hạn trong `submission/qc/annotation_provenance_101.json`.
+
 | Mã | Task | Job | Phân công |
 |---|---|---|---|
 | 101 | [Task 15](http://localhost:8080/tasks/15) | [Job 10](http://localhost:8080/tasks/15/jobs/10) | img_001.jpg–img_040.jpg |

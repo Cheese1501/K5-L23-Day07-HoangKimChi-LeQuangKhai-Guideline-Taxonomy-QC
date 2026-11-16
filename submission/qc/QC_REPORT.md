@@ -24,12 +24,14 @@ Với img_024, chưa kết luận xe vàng là xe thật hay mô hình; với im
 
 ## 2. Phân công và đồng thuận trước calibration
 
-- Lượt hoàn thành / được giao: chưa có COCO để xác nhận lượt hoàn thành / **80 lượt được giao**. Cả 101 và 102 được giao toàn bộ 40 ảnh theo `assignment.csv`; mỗi ảnh cần hai lượt độc lập.
+- Lượt hoàn thành / được giao: chưa xác nhận lượt gán thủ công độc lập hoàn thành / **80 lượt được giao**. Cả101 và102 được giao toàn bộ40 ảnh theo `assignment.csv`; mỗi ảnh cần hai lượt độc lập. File101 hiện có là bản review AI hỗ trợ, chưa đáp ứng bằng chứng gán thủ công độc lập của Day07.
 - Số cặp box ghép, IoU TB, đồng thuận lớp và mẫu số: N/A — chưa có hai bộ COCO độc lập hợp lệ để ghép cặp.
 - Box chưa ghép, loại do ignore, bất đồng vùng ignore: chưa có kết quả so sánh, không ghi số lượng bằng 0.
 - Ca hai người có thể cùng sai sau khi đối chiếu tham chiếu: chưa thực hiện đối chiếu nhãn với tham chiếu. Khi có nhãn cần kiểm nguy cơ cùng bỏ người trên xe hoặc cùng gán tượng thành người; chưa coi đây là lỗi đã xảy ra.
 
 Nhóm đã chuẩn bị Task riêng cho mỗi người, dùng cấu hình v1.0. Việc có Task hoặc phân công chưa chứng minh đã gán xong. IoU và đồng thuận lớp chỉ tính trên các cặp box ghép được, nên vẫn phải đọc vật bỏ sót, box chưa ghép và vùng ignore.
+
+Bản thực hành review đã lưu tại `submission/labels/101.json`, xuất từ Task17/Job12: 40 ảnh, 344 annotation (342 đối tượng và2 vùng ignore). So với export trước sửa, đã loại92 box và sửa48 box, gồm box sao chép sang ảnh khác, vật ngoài phạm vi, instance trùng, lớp van và thuộc tính che/cắt biên rõ. File đạt validator cấu trúc; vẫn còn312 box mức che3 và342 box đối tượng can_review=true. Nguồn, checksum và giới hạn tại [annotation_provenance_101.json](annotation_provenance_101.json); chi tiết sửa tại [annotation_corrections_101.csv](annotation_corrections_101.csv). Đây là sản phẩm review có hỗ trợ AI, không phải kết quả IAA/calibration hoặc QC đã nghiệm thu.
 
 ## 3. Calibration và kiểm lại
 

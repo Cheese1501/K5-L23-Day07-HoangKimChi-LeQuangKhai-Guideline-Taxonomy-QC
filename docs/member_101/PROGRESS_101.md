@@ -1,59 +1,30 @@
-# Tiến độ Lab Day 07 — thành viên 101
+# Tiến độ học tập và thực hành — thành viên 101
 
-- **Mã thành viên:** 101
-- **Ngày cập nhật:** 2026-11-16
-- **Phạm vi:** assignment, ảnh và tài liệu riêng của 101.
-**Trạng thái tổng thể:** tài liệu đã chuẩn bị để 101 đối chiếu; guideline/annotation chính thức còn chờ 101 tự rà soát và nhóm chốt.
+Cập nhật: 2026-11-16. Phạm vi: 40 ảnh được giao cho 101. Nội dung ca ảnh và quy tắc là tài liệu chuẩn bị; 101 cần tự đối chiếu, hoàn thiện và xác nhận trước khi nộp.
 
-## 1. Kết quả đã chuẩn bị
+## 1. Nội dung đã có để học và đối chiếu
 
-| Hạng mục | Trạng thái | Bằng chứng |
-|---|---|---|
-| Assignment và ảnh 101 | `COMPLETED` | `submission/qc/assignments/101.txt` có 40 tên ảnh duy nhất; `work/101/images/` có 40 ảnh duy nhất và khớp danh sách. |
-| Phân tích ảnh | `PREPARED` | `IMAGE_ANALYSIS.md` có một mục cho từng `img_001.jpg`–`img_040.jpg`, bao gồm class ứng viên, vật ngoài taxonomy, tình huống đặc biệt, box/attributes và lý do đề xuất. |
-| Guideline cá nhân | `PREPARED` | `submission/guidelines/individual/guideline_101.md` diễn giải class v0, bounding box, thuộc tính, ca khó, QC và kết luận. Các quy tắc đề xuất mang mã `I101-xx`, không phải rule nhóm. |
-| Ghi chú cá nhân | `PREPARED` | `submission/individual_notes/101.md` có các điểm mơ hồ, ca khó tiêu biểu, đề xuất/rủi ro/QC, nội dung calibration và cách dùng công cụ. Không ghi nhận hoạt động chưa xảy ra. |
-| Taxonomy/CVAT cấu hình | `PREPARED` | `submission/taxonomy.json` vẫn là `v0`. `cvat/labels_generated.json` có đúng sáu class v0; năm class object có `occluded_level`, `truncated`, `can_review`, còn `ignore_region` không có attributes. Đây chưa phải taxonomy nhóm v1.0. |
+- [Phân tích 40 ảnh](IMAGE_ANALYSIS.md) nêu vật mục tiêu, ngoài taxonomy, ca che/cắt mép và hướng xử lý.
+- [Guideline cá nhân](../../submission/guidelines/individual/guideline_101.md) lưu lựa chọn ban đầu, gồm tách người–xe, xe chở xe, pickup, vật nhỏ, tượng và phản chiếu.
+- [Ghi chú cá nhân](../../submission/individual_notes/101.md) theo sáu mục của mẫu lab, tập trung ca khó, khác biệt quy tắc, bài học và kết quả các pha khi có.
+- [Guideline nhóm dự thảo](../../submission/guidelines/guideline_v1.0_agreed.md) là đầu vào thảo luận Pha 2, chưa được hai người xác nhận/khóa.
 
-## 2. Kết quả rà soát ảnh
+## 2. Vấn đề cần giải thích được
 
-Đã lập bảng cho đủ 40 ảnh dựa trên nội dung trực quan của các ảnh gốc và đối chiếu các ca cần phân tích kỹ hơn, gồm xe chở xe (`img_002`), nhiều người/xe máy chồng lấp (`img_005`), tượng (`img_017`), người trên xe máy và tranh nền (`img_026`), xe diễu hành/mascot (`img_019`), pickup chở ngựa (`img_028`), bãi xe đông (`img_030`) và người ở tiền cảnh trước taxi (`img_040`).
+| Ca / chủ đề | Nội dung cần làm rõ |
+|---|---|
+| img_002 | Vì sao carrier, các xe được chở và người bên cạnh là các đối tượng xét riêng; khung che khác cắt mép thế nào |
+| img_005, img_026 | Cùng một quy tắc tách người và xe có áp dụng nhất quán trên hai ảnh không |
+| img_017, img_018, img_020, img_038 | Vì sao tượng, hình in, phản chiếu và đồ chơi không là instance thật thuộc scope |
+| img_024, img_028, img_040 | Giới hạn quan sát ở đâu; khi nào có box ứng viên cần review, khi nào phải ghi vấn đề cấp ảnh |
+| Occlusion | Khác biệt bản cá nhân 25% với đề xuất nhóm 50%; mức3 giữ nghĩa không xác định; không tính truncation vào tỷ lệ che |
 
-Các nhóm cần đối chiếu với v1.0: bus/minibus, tuk-tuk/auto-rickshaw, xe đạp/xích lô, pickup/van/truck, tượng/mannequin/đồ chơi/hình in, phản chiếu và vật dưới 20 px. Không có tọa độ hoặc nhãn COCO nào được tạo.
+## 3. Phần thực hành còn cần hoàn thành
 
-## 3. CVAT và annotation
+Assignment có 40 ảnh cho 101; chưa có COCO 101 để xác nhận số ảnh đã gán, số box hoặc số lần can_review. Chưa có kết quả IAA/calibration/QC của cá nhân để báo cáo. Quyền tạo Task, lưu và export CVAT chưa có bằng chứng xác nhận trong hồ sơ.
 
-- Hướng dẫn cấu hình, tạo task và export COCO có trong `docs/CVAT_SETUP.md`.
-- Assignment và bản sao ảnh khớp: **40/40**, không thiếu/thừa.
-- `submission/labels/101.json`: **chưa có**.
-- Đăng nhập instance CVAT của lớp, tạo task, upload, vẽ box và export của 101: **chưa được xác nhận**.
-- Nhãn chính thức: `BLOCKED_HUMAN` cho tới khi guideline/taxonomy nhóm `v1.0` được nhóm chốt và thành viên 101 thực hiện annotation độc lập trong CVAT.
+101 cần tự kiểm các ca, xác nhận bản cá nhân và quyết định Pha 2; sau khi nhóm khóa v1.0 mới gán độc lập, export/validate, gửi riêng rồi tham gia phân tích bất đồng. Ghi chú phải cập nhật từ trải nghiệm thực hành, không chuyển kế hoạch thành kết quả đã làm.
 
-## 4. Kiểm tra và bằng chứng
+## 4. Tài liệu báo cáo
 
-- Số tên assignment: 40; số tên duy nhất: 40.
-- Số ảnh trong `work/101/images/`: 40; số ảnh duy nhất: 40.
-- Tập tên assignment và tập tên ảnh trong thư mục làm việc trùng khớp.
-- Taxonomy còn `v0`; không sửa class, attributes hoặc `rules`.
-- Chưa có COCO của 101 nên chưa chạy `validate_labels.py submission/labels/101.json`.
-- Không tạo kết quả IAA, calibration, QC review hoặc Release.
-- Đã kiểm tra tài liệu CVAT và taxonomy; chưa xác minh quyền truy cập instance CVAT bên ngoài.
-
-## 5. Công việc còn lại của thành viên 101
-
-1. Rà lại 40 ảnh gốc và sửa mô tả trong `IMAGE_ANALYSIS.md` nếu có điểm không khớp.
-2. Đọc guideline 101, chỉnh quy tắc cá nhân nếu cần và chỉ gửi phiên bản đã tự xác nhận.
-3. Thảo luận với nhóm về phương tiện thiếu class, xe được chở, ngưỡng `occluded_level` và phạm vi `ignore_region`.
-4. Chờ khóa guideline/taxonomy v1.0; không dùng v0 cho annotation chính thức nếu quy trình yêu cầu v1.0.
-5. Sau khi v1.0 được chốt, tạo task riêng trong CVAT, gán nhãn độc lập cả 40 ảnh, export COCO vào `submission/labels/101.json` và chạy validator.
-6. Chỉ cập nhật ghi chú về hoạt động đã thực hiện; không thêm số liệu IAA/QC/calibration khi chưa có kết quả thật.
-
-## 6. Mức độ sẵn sàng nộp bài
-
-**NOT READY.** Tài liệu đã có nội dung để 101 đọc, đối chiếu và chỉnh sửa, nhưng chưa thay thế việc 101 tự rà soát và xác nhận, quyết định guideline/taxonomy v1.0 của nhóm, annotation thật trong CVAT hoặc các artifact của những pha sau. Quyền truy cập CVAT bên ngoài cũng chưa được xác minh.
-
-## 7. Final audit 2026-11-16
-
-Đã thực hiện vòng AI audit: đọc yêu cầu/rubric, mở riêng 40 tệp ảnh gốc và sửa các lỗi có căn cứ trong ba tài liệu nội dung. Xem [FINAL_AUDIT_101.md](FINAL_AUDIT_101.md) để biết từng ảnh, tiêu chí, lỗi sửa và kết quả kiểm thử thực tế. Đây chưa phải xác nhận của 101.
-
-Trạng thái tài liệu: **READY FOR 101 REVIEW**; trạng thái hoàn tất lab/nộp đầy đủ vẫn **NOT READY**. Các điểm ảnh chưa rõ, xác nhận cá nhân, annotation thật và các pha nhóm còn thiếu được ghi riêng trong báo cáo.
+[Báo cáo nhóm](../../submission/qc/QC_REPORT.md) là bản dự thảo theo mẫu gốc; [FINAL_AUDIT_101.md](FINAL_AUDIT_101.md) là phụ lục kiểm tra tài liệu trước đó. Phụ lục không chứng minh 101 đã tự gán nhãn, đã hoàn thành lab hoặc đã được reviewer nghiệm thu.

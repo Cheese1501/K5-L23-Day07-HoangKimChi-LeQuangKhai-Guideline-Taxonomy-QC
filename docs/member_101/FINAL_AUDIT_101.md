@@ -1,5 +1,7 @@
 # Final audit — Member 101 — Day 07
 
+> Phụ lục kiểm tra tài liệu tại thời điểm audit, giữ để tra cứu lịch sử. Đây không phải báo cáo học tập hoặc bằng chứng thực hành của 101. Báo cáo theo mẫu lab ở [submission/qc/QC_REPORT.md](../../submission/qc/QC_REPORT.md); ghi chú của người học ở [101.md](../../submission/individual_notes/101.md).
+
 - Ngày audit: **2026-11-16** (Asia/Saigon).
 - Phạm vi: bốn tài liệu riêng 101, 40 ảnh assignment và kiểm tra kỹ thuật liên quan. AI thực hiện audit và sửa tài liệu; **chưa có xác nhận của 101**, không phải review nhãn đã vẽ.
 - Đã đọc: `README.md`, `GUIDE.md`, `RULES.md`, `RUBRIC.md`, `SUBMISSION.md`, template guideline, guideline v0, taxonomy/schema; đối chiếu thêm `docs/QC_CHEATSHEET.md`, `docs/INDIVIDUAL_NOTE_TEMPLATE.md` và logic sinh cấu hình CVAT.

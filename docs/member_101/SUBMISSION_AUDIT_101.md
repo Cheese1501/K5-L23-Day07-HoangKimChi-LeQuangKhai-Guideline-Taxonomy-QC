@@ -48,6 +48,7 @@ Ngoài các tệp thiếu, 604 dòng trong calibration_decisions.csv còn chờ 
 
 ## Kết quả kiểm tra
 
+- Ghi chú 101 khớp nguyên tên và thứ tự sáu mục của INDIVIDUAL_NOTE_TEMPLATE.md. Báo cáo QC khớp năm mục và 23 tên trường của QC_REPORT_TEMPLATE.md. Phần phân tích cá nhân dẫn các ca C134, C242–C243, C423 và C573 đã đối chiếu với bảng ca.
 - `python -X utf8 scripts/validate_labels.py --all` đạt cho 101 và 102.
 - `python -X utf8 scripts/make_cvat_labels.py` kiểm schema và sinh cấu hình CVAT thành công.
 - `python -X utf8 scripts/qc_compare.py` chạy thành công; bằng chứng đầu vào và checksum lưu trong iaa_summary.json.

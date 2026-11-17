@@ -23,6 +23,8 @@ Các tệp được yêu cầu trước đây đã có. Phần còn lại là n�
 
 Chạy `python -X utf8 scripts/validate_labels.py --all` cho hai COCO cá nhân và `python -X utf8 scripts/check_submission.py --round 2` cho bộ bàn giao. Nhãn cuối, CSV và manifest được sinh bởi build_final.py. Vòng cũ giữ nguyên để đọc lỗi, bản sửa và kết quả kiểm lại.
 
+Đã kiểm trên bản clone mới của commit bàn giao trong môi trường Windows: check_submission.py vòng 2 trả 0 lỗi, validator đạt cả hai COCO. .gitattributes giữ nguyên byte của image_issues.csv để Git không đổi xuống dòng làm lệch checksum đầu vào. Kiểm cấu trúc hồ sơ đạt được đọc cùng quyết định Hold và phạm vi kiểm có AI hỗ trợ.
+
 Repo đã dọn 14 file hướng dẫn xuất trùng/walkthrough/.gitkeep; bản sao cục bộ và ZIP nguồn ở work/repo_cleanup_20261117/. Các liên kết, ảnh gốc, script, test, mẫu chấm và lịch sử có dẫn chứng được giữ.
 
 Tôi cập nhật trên main của repo nhóm hiện có. Repo là public fork; kênh riêng tư và xác nhận nhận bài theo hướng dẫn coach trong SUBMISSION.md.

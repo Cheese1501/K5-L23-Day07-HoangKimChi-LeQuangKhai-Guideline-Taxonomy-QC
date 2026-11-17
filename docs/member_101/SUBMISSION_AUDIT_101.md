@@ -56,4 +56,12 @@ Ngoài các tệp thiếu, 604 dòng trong calibration_decisions.csv còn chờ 
 - `python -X utf8 scripts/check_submission.py --round 1` còn hai lỗi về số vòng QC và qc_result.json. Bảng thiếu tệp mô tả cả các bước chưa tới trong pipeline.
 - Bộ kiểm thử workflow trước lần bổ sung đã đạt 20/20 trên Linux. Lần này tôi bổ sung hồ sơ và chạy các lệnh kiểm dữ liệu, không thay mã script.
 
+## Rà soát và dọn repo
+
+Tôi đã bỏ 14 file dư khỏi bản hiện tại của repo: ba bản hướng dẫn xuất trùng nội dung (Markdown/HTML/PDF), 10 ảnh walkthrough chỉ phục vụ các bản hướng dẫn đó và `.gitkeep` trong thư mục QC đã có dữ liệu. Các hướng dẫn GUIDE.md, RULES.md, SUBMISSION.md, rubric, mẫu chấm, script, test và dữ liệu vẫn phục vụ kiểm lại bài.
+
+Bản sao cục bộ của các file đã dọn và ZIP nguồn được lưu tại `work/repo_cleanup_20261117/`. Thư mục work được Git bỏ qua. Các bản nhãn và nhật ký lịch sử đang được báo cáo dẫn tới vẫn có trong hồ sơ để truy lại thay đổi.
+
+Sau khi dọn, tôi kiểm 33 file Markdown và không thấy liên kết nội bộ bị hỏng. Hai COCO vẫn đạt validator. Kiểm toàn gói tiếp tục báo hai lỗi về vòng QC và qc_result.json; danh sách tệp còn thiếu đã được ghi trực tiếp trong README và bảng kiểm này.
+
 Tôi nộp bổ sung trên main của repo nhóm hiện có, giữ trạng thái **Hold** tới khi hoàn thiện calibration và QC. Repo hiện là public fork; yêu cầu kênh riêng tư và xác nhận nhận bài theo hướng dẫn coach trong SUBMISSION.md.

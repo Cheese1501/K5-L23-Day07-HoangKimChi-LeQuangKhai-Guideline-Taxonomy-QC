@@ -40,6 +40,23 @@ Trong lượt review 101, tôi sử dụng backup đã review của 102 và côn
 
 `consensus_draft.json` là bản nháp tự động. Bảng quyết định calibration hiện chờ nhóm điền và kiểm lại. Tôi chưa dùng hai file này thay cho nhãn cuối đã nghiệm thu.
 
+## Kiểm tra độ đầy đủ của bài nộp
+
+Phần hồ sơ cá nhân đã có guideline, COCO và ghi chú cho cả 101 và 102. Hồ sơ chung đã có phân công, taxonomy, nguồn ảnh, kết quả so sánh và báo cáo QC theo mẫu. Hai COCO đạt validator và các liên kết tài liệu trong repo đã được kiểm tra.
+
+Gói bàn giao cuối còn các mục sau theo SUBMISSION.md.
+
+| Tệp hoặc nhóm tệp còn thiếu | Việc cần hoàn thiện |
+|---|---|
+| `submission/guidelines/guideline_v1.1_calibrated.md` | Chốt quy tắc sau calibration |
+| `submission/guideline_change.json` | Ghi loại và nội dung thay đổi của guideline đã chốt |
+| `submission/qc/labels_calibrated.json` | Sửa và gộp nhãn theo quyết định calibration |
+| `submission/qc/labels_calibrated.csv` | Xuất bảng nhãn cuối bằng build_final.py |
+| `submission/qc/batch_manifest.json` | Sinh manifest nguồn, phiên bản và checksum của nhãn cuối |
+| `submission/qc/reviews/round-01/` | Lập phiếu duyệt toàn lô rồi sinh kết quả QC |
+
+`calibration_decisions.csv` đã có 604 dòng tương ứng các ca, còn chờ nhóm điền quyết định và bằng chứng kiểm lại. `taxonomy_v1.1.json` chỉ cần khi đổi schema. Bài hiện ở trạng thái **Hold**; chưa đủ điều kiện bàn giao nhãn cuối.
+
 ## Kiểm tra và chạy lại
 
 Chạy từ thư mục gốc với Python 3.9+ sau khi cài `python -m pip install -r requirements.txt`.

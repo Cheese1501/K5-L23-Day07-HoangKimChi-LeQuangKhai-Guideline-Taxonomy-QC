@@ -24,6 +24,8 @@ Trong lượt review 101, tôi sử dụng backup đã review của 102 và côn
 
 File COCO 101 đã được đối chiếu với bản export tôi cung cấp, `job_14_annotations_2026_11_17_04_17_59_coco 1.0.zip`. JSON bên trong khớp từng byte với `submission/labels/101.json`, đủ 40 ảnh và 344 annotation.
 
+Bản export CVAT nguyên gốc của tôi được lưu tại [submission/exports/101.zip](submission/exports/101.zip); JSON cá nhân dùng để kiểm tra và so sánh nằm tại [submission/labels/101.json](submission/labels/101.json).
+
 | Nội dung | Tệp |
 |---|---|
 | Thông tin nhóm và tiến độ | [TEAM.md](TEAM.md) |

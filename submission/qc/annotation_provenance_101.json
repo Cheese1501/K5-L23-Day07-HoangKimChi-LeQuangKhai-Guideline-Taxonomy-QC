@@ -56,6 +56,7 @@
   "authorship_statement": "Member 101 states this is their own coursework and requests first-person reporting; AI assistance and shared source remain disclosed.",
   "human_review_complete_meaning": "Object-level final QC has not been completed; this field does not describe authorship.",
   "source_export_filename": "job_14_annotations_2026_11_17_04_17_59_coco 1.0.zip",
+  "submitted_export_path": "submission/exports/101.zip",
   "member_provided_export_verified": true,
   "member_provided_export_date": "2026-11-17",
   "member_provided_export_matches_submitted_101_byte_for_byte": true,

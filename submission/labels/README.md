@@ -2,6 +2,8 @@
 
 Mỗi thành viên một file COCO xuất từ CVAT, tên `<mã>.json`, giữ đúng tập ảnh trong phân công. Chạy `python -X utf8 scripts/validate_labels.py --all`.
 
+Bản ZIP export CVAT do 101 cung cấp nằm tại [../exports/101.zip](../exports/101.zip). JSON `annotations/instances_default.json` bên trong khớp từng byte với `101.json` trong thư mục này.
+
 ## Trạng thái ngày 2026-11-17
 
 | Bản | Ảnh | Annotation | Nguồn |

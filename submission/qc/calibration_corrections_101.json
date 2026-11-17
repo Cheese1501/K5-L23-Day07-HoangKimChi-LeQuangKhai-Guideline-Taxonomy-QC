@@ -1,0 +1,245 @@
+[
+  {
+    "image": "img_012.jpg",
+    "action": "update",
+    "rule_id": "R-04/R-08",
+    "before": {
+      "id": 118,
+      "image_id": 12,
+      "category_id": 1,
+      "segmentation": [],
+      "area": 263860.0,
+      "bbox": [
+        292.0,
+        245.0,
+        668.0,
+        395.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "no",
+        "can_review": false,
+        "occluded": false,
+        "rotation": 0.0
+      }
+    },
+    "after": {
+      "id": 118,
+      "image_id": 12,
+      "category_id": 2,
+      "segmentation": [],
+      "area": 263860.0,
+      "bbox": [
+        292.0,
+        245.0,
+        668.0,
+        395.0
+      ],
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "1",
+        "truncated": "yes",
+        "can_review": true,
+        "occluded": false,
+        "rotation": 0.0
+      }
+    },
+    "reason": "Pickup tiền cảnh có cabin/thùng riêng, bị cắt ở biên phải/dưới; giữ cờ để kiểm lại."
+  },
+  {
+    "image": "img_004.jpg",
+    "action": "add",
+    "rule_id": "R-02/R-05/R-06",
+    "before": null,
+    "after": {
+      "id": 345,
+      "image_id": 4,
+      "category_id": 5,
+      "bbox": [
+        194,
+        121,
+        142,
+        300
+      ],
+      "area": 42600,
+      "iscrowd": 0,
+      "segmentation": [],
+      "attributes": {
+        "occluded_level": "3",
+        "truncated": "no",
+        "can_review": true
+      }
+    },
+    "reason": "người lái tuk-tuk trái, sau kính và khung cabin; box đề xuất sau xem ảnh, giữ cờ để kiểm biên."
+  },
+  {
+    "image": "img_004.jpg",
+    "action": "add",
+    "rule_id": "R-02/R-05/R-06",
+    "before": null,
+    "after": {
+      "id": 346,
+      "image_id": 4,
+      "category_id": 5,
+      "bbox": [
+        570,
+        173,
+        116,
+        174
+      ],
+      "area": 20184,
+      "iscrowd": 0,
+      "segmentation": [],
+      "attributes": {
+        "occluded_level": "3",
+        "truncated": "no",
+        "can_review": true
+      }
+    },
+    "reason": "người lái tuk-tuk phải, áo xanh và quần xám; box đề xuất sau xem ảnh, giữ cờ để kiểm biên."
+  },
+  {
+    "image": "img_001.jpg",
+    "action": "delete",
+    "rule_id": "R-06",
+    "before": {
+      "id": 7,
+      "image_id": 1,
+      "category_id": 2,
+      "bbox": [
+        634.0,
+        100.0,
+        326.0,
+        197.0
+      ],
+      "area": 64222.0,
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "3",
+        "truncated": "yes",
+        "can_review": true
+      }
+    },
+    "after": null,
+    "reason": "Bỏ box chỉ cabin trùng pickup ID6."
+  },
+  {
+    "image": "img_034.jpg",
+    "action": "delete",
+    "rule_id": "R-06",
+    "before": {
+      "id": 301,
+      "image_id": 34,
+      "category_id": 1,
+      "bbox": [
+        447.0,
+        228.0,
+        141.0,
+        83.0
+      ],
+      "area": 11703.0,
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "3",
+        "truncated": "no",
+        "can_review": true
+      }
+    },
+    "after": null,
+    "reason": "Bỏ box phần đuôi, giữ sedan toàn xe ID299."
+  },
+  {
+    "image": "img_034.jpg",
+    "action": "delete",
+    "rule_id": "R-06",
+    "before": {
+      "id": 304,
+      "image_id": 34,
+      "category_id": 1,
+      "bbox": [
+        360.0,
+        239.0,
+        44.0,
+        69.0
+      ],
+      "area": 3036.0,
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "3",
+        "truncated": "no",
+        "can_review": true
+      }
+    },
+    "after": null,
+    "reason": "Bỏ box phần đầu, giữ sedan toàn xe ID299."
+  },
+  {
+    "image": "img_001.jpg",
+    "action": "update",
+    "rule_id": "R-06",
+    "before": {
+      "id": 6,
+      "image_id": 1,
+      "category_id": 2,
+      "bbox": [
+        336.0,
+        103.0,
+        624.0,
+        537.0
+      ],
+      "area": 335088.0,
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "3",
+        "truncated": "yes",
+        "can_review": true
+      }
+    },
+    "after": {
+      "id": 6,
+      "image_id": 1,
+      "category_id": 2,
+      "bbox": [
+        336,
+        100,
+        624,
+        540
+      ],
+      "area": 336960,
+      "iscrowd": 0,
+      "attributes": {
+        "occluded_level": "3",
+        "truncated": "yes",
+        "can_review": true
+      }
+    },
+    "reason": "Bao cả đỉnh cabin y100 trong box một pickup, sau khi bỏ box cabin riêng."
+  },
+  {
+    "image": "img_001.jpg",
+    "action": "add",
+    "rule_id": "R-05/R-06",
+    "before": null,
+    "after": {
+      "id": 347,
+      "image_id": 1,
+      "category_id": 5,
+      "bbox": [
+        125,
+        112,
+        99,
+        297
+      ],
+      "area": 29403,
+      "iscrowd": 0,
+      "segmentation": [],
+      "attributes": {
+        "occluded_level": "3",
+        "truncated": "no",
+        "can_review": true
+      }
+    },
+    "reason": "Khôi phục instance người nữ ngồi sau người ngoài cùng trái; phần cơ thể bị che cần kiểm biên, giữ mức3 và cờ review."
+  }
+]

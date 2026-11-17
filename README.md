@@ -14,6 +14,8 @@ Nhóm chúng tôi gồm hai thành viên **101 và 102**, thực hành xây dự
 | Review bản 101 | 21 chỉnh sửa trên 13 ảnh, có nhật ký trước/sau |
 | So sánh hai bản hiện có | 342 cặp, IoU TB 1.0000, cùng lớp 336/342 (98.25%), chưa ghép 0/8 |
 | Ca cần calibration | 604 ca trên 35 ảnh, gồm cả cờ chưa chắc; chưa phải 604 lỗi xác nhận |
+| Bộ nhãn bàn giao |40 ảnh,344 annotation; guideline v1.1 editorial, có JSON/CSV và manifest |
+| QC có AI hỗ trợ | Vòng 1 phát hiện2/40 ảnh lỗi, đã sửa; vòng 2 ghi 0/40 lỗi mới, còn cờ chờ xác nhận |
 | Quyết định hiện tại | **Hold**, tiếp tục calibration và QC trước khi bàn giao nhãn cuối |
 
 Trong lượt review 101, tôi sử dụng backup đã review của 102 và công cụ AI hỗ trợ. Hai bản có chung nguồn đầu vào, vì vậy tôi đọc số đo so sánh cùng thông tin nguồn nhãn. Quy trình này chưa đáp ứng yêu cầu hai lượt vẽ box thủ công độc lập của RULES Day07.
@@ -38,24 +40,23 @@ Trong lượt review 101, tôi sử dụng backup đã review của 102 và côn
 | Kiểm tra file và phần cần hoàn thiện | [SUBMISSION_AUDIT_101.md](docs/member_101/SUBMISSION_AUDIT_101.md) |
 | Nguồn và phép sử dụng ảnh | [data/README.md](data/README.md), [ATTRIBUTION.csv](data/ATTRIBUTION.csv) |
 
-`consensus_draft.json` là bản nháp tự động. Bảng quyết định calibration hiện chờ nhóm điền và kiểm lại. Tôi chưa dùng hai file này thay cho nhãn cuối đã nghiệm thu.
+`consensus_draft.json` là bản nháp tự động. Bộ bàn giao có nhãn riêng và hai vòng QC; quyết định hiện tại là Hold. Các dòng calibration đã có quyết định xử lý và ghi rõ phần chờ nhóm xác nhận.
 
 ## Kiểm tra độ đầy đủ của bài nộp
 
-Phần hồ sơ cá nhân đã có guideline, COCO và ghi chú cho cả 101 và 102. Hồ sơ chung đã có phân công, taxonomy, nguồn ảnh, kết quả so sánh và báo cáo QC theo mẫu. Hai COCO đạt validator và các liên kết tài liệu trong repo đã được kiểm tra.
+Các nhóm file theo SUBMISSION.md đã có. Bằng chứng chất lượng và phần chờ xác nhận được ghi trong báo cáo QC.
 
-Gói bàn giao cuối còn các mục sau theo SUBMISSION.md.
-
-| Tệp hoặc nhóm tệp còn thiếu | Việc cần hoàn thiện |
+| Nội dung hoàn thiện | Tệp |
 |---|---|
-| `submission/guidelines/guideline_v1.1_calibrated.md` | Chốt quy tắc sau calibration |
-| `submission/guideline_change.json` | Ghi loại và nội dung thay đổi của guideline đã chốt |
-| `submission/qc/labels_calibrated.json` | Sửa và gộp nhãn theo quyết định calibration |
-| `submission/qc/labels_calibrated.csv` | Xuất bảng nhãn cuối bằng build_final.py |
-| `submission/qc/batch_manifest.json` | Sinh manifest nguồn, phiên bản và checksum của nhãn cuối |
-| `submission/qc/reviews/round-01/` | Lập phiếu duyệt toàn lô rồi sinh kết quả QC |
+| Guideline bàn giao và thay đổi | [v1.1](submission/guidelines/guideline_v1.1_calibrated.md), [guideline_change.json](submission/guideline_change.json) |
+| Nhãn bàn giao | [labels_calibrated.json](submission/qc/labels_calibrated.json), [labels_calibrated.csv](submission/qc/labels_calibrated.csv) |
+| Manifest | [batch_manifest.json](submission/qc/batch_manifest.json) |
+| Quyết định và trạng thái calibration | [calibration_decisions.csv](submission/qc/calibration_decisions.csv), [calibration_resolution_status.json](submission/qc/calibration_resolution_status.json) |
+| Sửa bổ sung | [calibration_corrections_101.json](submission/qc/calibration_corrections_101.json) |
+| QC vòng 1 | [Phiếu](submission/qc/reviews/round-01/qc_review.csv), [kết quả](submission/qc/reviews/round-01/qc_report_auto.md) |
+| QC vòng 2 | [Phiếu](submission/qc/reviews/round-02/qc_review.csv), [kết quả](submission/qc/reviews/round-02/qc_report_auto.md), [phạm vi](submission/qc/reviews/round-02/REVIEW_SCOPE.md) |
 
-`calibration_decisions.csv` đã có 604 dòng tương ứng các ca, còn chờ nhóm điền quyết định và bằng chứng kiểm lại. `taxonomy_v1.1.json` chỉ cần khi đổi schema. Bài hiện ở trạng thái **Hold**; chưa đủ điều kiện bàn giao nhãn cuối.
+609 dòng calibration đã ghi cách xử lý, gồm 604 ca so sánh và 5 thao tác sau QC. Xác nhận của nhóm còn chờ. Nhãn bàn giao giữ289 cờ review và 127 mức che3, nên bài vẫn **Hold**. taxonomy_v1.1.json không phát sinh vì schema giữ nguyên.
 
 ## Kiểm tra và chạy lại
 
@@ -65,10 +66,10 @@ Chạy từ thư mục gốc với Python 3.9+ sau khi cài `python -m pip insta
 python -X utf8 scripts/validate_labels.py --all
 python -X utf8 scripts/qc_compare.py
 python -X utf8 scripts/viz_disagreement.py --images flagged
-python -X utf8 scripts/check_submission.py --round 1
+python -X utf8 scripts/check_submission.py --round 2
 ```
 
-Validator đã đạt cho cả 101 và 102. Lệnh so sánh sinh số đo và các ca cần xem từ đúng hai COCO hiện tại. Lệnh kiểm toàn gói vẫn báo thiếu vòng QC và `qc_result.json`; phần còn thiếu được liệt kê trong bảng kiểm bài nộp. Ảnh overlay có thể sinh lại tại `work/viz/`, thư mục này dùng cục bộ.
+Validator đã đạt cho cả 101 và 102. Lệnh so sánh sinh số đo và các ca cần xem từ đúng hai COCO hiện tại. Kiểm toàn gói dùng vòng 2; kết quả kiểm cấu trúc hồ sơ được đọc cùng quyết định Hold và các điều kiện còn chờ. Ảnh overlay có thể sinh lại tại `work/viz/`, thư mục này dùng cục bộ.
 
 ## Tài liệu lab
 

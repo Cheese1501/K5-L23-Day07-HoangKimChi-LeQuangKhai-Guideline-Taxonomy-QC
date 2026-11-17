@@ -1,5 +1,7 @@
 # Kiểm phần cá nhân 102 — 2026-11-17
 
+*Cập nhật hồ sơ nhóm sau lần kiểm cá nhân này: đã có kết quả so sánh, guideline v1.1 editorial, bộ nhãn bàn giao, manifest và hai vòng QC có AI hỗ trợ. Các quyết định nhóm và cờ chưa chắc còn chờ xác nhận; xem QC_REPORT.md và README hiện tại. Phần dưới giữ ghi nhận tại thời điểm nộp cá nhân102.*
+
 ## Đã có và đã kiểm
 
 | Hạng mục | Trạng thái / bằng chứng |

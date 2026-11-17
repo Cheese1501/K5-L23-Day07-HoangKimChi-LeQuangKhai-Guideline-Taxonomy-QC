@@ -17,6 +17,6 @@ Task15/16 theo phân công cũ trả 404 ở lần kiểm trước. Bản 101 c�
 2. Dùng guideline chung v1.0 để kiểm class, phần nhìn thấy, mức che, cắt biên và cờ review. Vùng chưa xác định box/class ghi trong image_issues.csv.
 3. Save và export COCO 1.0, tắt Save images, giữ cả ảnh không có đối tượng.
 4. Chạy validator, rồi chạy lại so sánh khi hai bản đầu vào thay đổi. Lưu bảng quyết định cũ trước khi tạo context mới.
-5. Nhóm chúng tôi hoàn thiện calibration, chốt v1.1, tạo nhãn cuối và mở vòng QC theo GUIDE.md.
+5. Bộ bàn giao đã có guideline v1.1 editorial, nhãn JSON/CSV, manifest và hai vòng QC tại submission/qc/. Nhóm chúng tôi tiếp tục xác nhận các quyết định, cờ chưa giải quyết và nghiệm thu theo GUIDE.md; nếu sửa bộ nhãn này thì mở vòng mới.
 
 Quy trình gán thủ công độc lập của lab trong [GUIDE.md](../../GUIDE.md) và [CVAT_SETUP.md](../CVAT_SETUP.md). Bối cảnh cùng nguồn của lượt review hiện tại được ghi trong báo cáo QC và ghi chú cá nhân.

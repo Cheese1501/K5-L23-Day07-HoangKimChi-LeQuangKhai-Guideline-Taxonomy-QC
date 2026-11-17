@@ -1,0 +1,43 @@
+image,object_id,error_type,reviewer,rule_id,region,note
+img_001.jpg,7,thua,101,R-06,,AI-assisted visual review for101: box chỉ cabin trùng cùng pickup đã có box toàn xe ID6.
+img_001.jpg,,bo_sot,101,R-06,"Người phụ nữ ngồi sau người ngoài cùng trái, đầu khoảng x126–198/y114–240",AI-assisted visual review for101: hai người ngồi trái là hai instance; box đầu của người phía sau đã bị loại nhầm trong lượt trước.
+img_002.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_003.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_004.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_005.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_006.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_007.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_008.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_009.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_010.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_011.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_012.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_013.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_014.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_015.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_016.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_017.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_018.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_019.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_020.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_021.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_022.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_023.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_024.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_025.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_026.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_027.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_028.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_029.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_030.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_031.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_032.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_033.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_034.jpg,301,thua,101,R-06,,AI-assisted visual review for101: box phần đuôi sedan thuộc cùng xe đã có box toàn xe ID299.
+img_034.jpg,304,thua,101,R-06,,AI-assisted visual review for101: box phần đầu xe trùng cùng sedan ID299.
+img_035.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_036.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_037.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_038.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_039.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.
+img_040.jpg,,khong,101,,,Lượt kiểm trực quan có AI hỗ trợ qua sheet gắn ID; chưa phát hiện lỗi bổ sung ở mức kiểm này. Các cờ chưa chắc và xác nhận nhóm tiếp tục giữ theo hồ sơ.

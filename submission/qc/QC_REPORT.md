@@ -1,43 +1,41 @@
 # Báo cáo QC — nhóm 101–102
 
-Nhóm chúng tôi thực hiện bài Day07 trên 40 ảnh, dùng mã 101 và 102. Tôi phụ trách phần bài 101 và cập nhật báo cáo này ngày 2026-11-17 theo mẫu `docs/QC_REPORT_TEMPLATE.md`. Trong lượt review, tôi sử dụng backup đã review của 102 và công cụ AI hỗ trợ. Báo cáo trình bày kết quả hiện có, nguồn nhãn và phần nhóm cần hoàn thiện trước nghiệm thu.
+Tôi phụ trách mã 101 và cập nhật hồ sơ ngày 2026-11-17 theo mẫu báo cáo của lab. Nhóm có 40 ảnh và hai COCO cá nhân. Tôi dùng ChatGPT/Codex hỗ trợ review, lập quyết định xử lý ca và tạo hồ sơ bàn giao. Nguồn hai bộ nhãn được khai báo trong provenance; xác nhận calibration chung và nghiệm thu độc lập còn chờ.
 
 ## 1. Mục đích, dữ liệu và phiên bản
 
-- Mục đích và giới hạn sử dụng: nhóm chúng tôi thực hành đặc tả, review box 2D và đối chiếu bản nhãn trên bộ 40 ảnh Day07. Kết quả không đại diện đầy đủ cho giao thông thực tế.
-- Nguồn và phép sử dụng dữ liệu: `data/images/img_001.jpg`–`img_040.jpg`; chúng tôi giữ ghi công và giấy phép trong `data/ATTRIBUTION.csv`.
-- Manifest và checksum nhãn cuối: chưa có nhãn cuối và `batch_manifest.json`. Nhãn review 101 có SHA-256 `e996c410d42d9dd0966ab0c7f71774dc90b61a2b14e1d4d0963147839c009921`; bản 102 có SHA-256 `3fe63fec2771eb7e47a2167526d6e208a80b5d1a309a985b721b4bf5f20f67c6`. Nguồn và checksum tại `annotation_provenance_101.json` và `annotation_provenance_102.json`.
-- Guideline và taxonomy khi gán / khi bàn giao: guideline chung v1.0 đã đồng ý và `submission/taxonomy.json` v1.0. Giữ các ngưỡng lab. Chưa có guideline v1.1 sau calibration.
+- Mục đích và giới hạn sử dụng: tôi thực hành đặc tả và QC box 2D trên 40 ảnh Day07. Bộ bàn giao hiện ở trạng thái Hold, phục vụ kiểm lại và tiếp tục xử lý các cờ. Chất lượng được mô tả trong phạm vi kiểm có AI hỗ trợ của hai vòng đã ghi.
+- Nguồn và phép sử dụng dữ liệu: data/images/img_001.jpg–img_040.jpg; ghi công và giấy phép trong data/ATTRIBUTION.csv. Bản 101 được review từ backup đã review của 102, nguồn đề xuất YOLO11n+SAM3 được khai báo.
+- Manifest và checksum nhãn cuối: batch_manifest.json ghi phiên bản, nguồn ảnh, checksum các đầu vào và nhãn bàn giao labels_calibrated.json. SHA-256 nhãn hiện tại là `0d4b21be50eb1ebe0eb01c0b0de65e34f75d66d46cbb546bc88c9a088207cbb6`. File CSV tương ứng nằm tại labels_calibrated.csv.
+- Guideline và taxonomy khi gán / khi bàn giao: nhãn cá nhân và phép so sánh dùng guideline/taxonomy v1.0. Bản bàn giao dùng guideline v1.1 với thay đổi editorial trong submission/guideline_change.json, giữ nghĩa quy tắc và taxonomy v1.0. Phần xác nhận v1.1 của nhóm còn chờ.
 
 ## 2. Phân công và đồng thuận trước calibration
 
-- Lượt hoàn thành / được giao: 80/80 lượt ảnh có mặt trong hai COCO, mỗi file đủ 40 ảnh theo `assignment.csv`. Hai bộ có nguồn pre-label và bản 101 kế thừa trực tiếp backup 102, nên 80 lượt có file chưa chứng minh 80 lượt gán thủ công độc lập theo RULES.
-- Số cặp box ghép, IoU TB, đồng thuận lớp và mẫu số: so sánh bản sửa với nguồn, 342 cặp đối tượng; IoU trung bình 1.0000; cùng lớp 336/342 = 98.25%. Tôi diễn giải các số đo cùng nguồn đầu vào chung của hai bản. Các sửa trong lượt review tập trung vào lớp, thuộc tính và box thừa, nên tọa độ các box giữ lại được kế thừa.
-- Box chưa ghép, loại do ignore, bất đồng vùng ignore: 101 có 0, 102 có 8 box đối tượng chưa ghép. Mỗi bản có 2 vùng ignore cùng hình học, loại khỏi phép ghép đối tượng; phép so sánh này không bỏ thêm đối tượng theo độ phủ ignore. Ghép tham lam theo `common.match_boxes`, không phân biệt lớp, ngưỡng 0.5. Các box trùng tọa độ có thể tạo hòa điểm, nên sáu cặp lệch lớp trong phép ghép không đồng nghĩa sáu thao tác đổi lớp.
-- Ca hai người có thể cùng sai sau khi đối chiếu tham chiếu: nhóm chúng tôi chưa có bộ tham chiếu được coach xác nhận. Tôi cần rà nguy cơ cùng bỏ sót ở ảnh 021/030/032; cờ mức che 3 còn nhiều. Xe vàng 024 giữ ứng viên car cần review theo R-05/R-09.
-
-Đồng thuận thuộc tính trên 342 cặp: occluded_level 338/342 = 98.83%; truncated 337/342 = 98.54%; can_review 338/342 = 98.83%. Tôi đã chạy `qc_compare.py`, sinh `iaa_summary.json/.md`, `calibration_candidates.csv`, `image_scores.csv`, `flagged_images.txt` và `consensus_draft.json`. Kết quả có 604 ca cần xem trên 35 ảnh, gồm 580 cờ can_review, 8 ca bỏ sót/thừa, 9 ca thuộc tính, 6 ca lớp và 1 vấn đề cấp ảnh. Đây là các ca do script ghi nhận, chưa phải số lỗi sau xác nhận. Tôi giữ nguyên đầu ra script và đọc chỉ báo đạt ngưỡng trong bối cảnh hai bản cùng nguồn.
+- Lượt hoàn thành / được giao: hai COCO có đủ 80/80 lượt ảnh theo assignment.csv. Điều kiện hai lượt vẽ thủ công độc lập chưa được chứng minh vì hai bản cùng nguồn pre-label và review.
+- Số cặp box ghép, IoU TB, đồng thuận lớp và mẫu số: iaa_summary.json/.md ghi 342 cặp; IoU trung bình 1.0000, cùng lớp 336/342=98.25%. Tôi giữ số đo trước calibration; các sửa sau đó nằm trong bộ nhãn bàn giao riêng.
+- Box chưa ghép, loại do ignore, bất đồng vùng ignore: phía101/102 có 0/8 box chưa ghép,0 đối tượng bỏ qua do ignore; hai vùng ignore mỗi bản ghép được. Ghép1–1 theo IoU≥0.5, không phân biệt lớp. Cùng nguồn và box trùng tọa độ ảnh hưởng cách diễn giải kết quả.
+- Ca hai người có thể cùng sai sau khi đối chiếu tham chiếu: trong vòng 1, tôi phát hiện cùng giữ các box mảnh của sedan ảnh 034 và cabin pickup ảnh 001; các ca này cần áp dụng R-06 một vật/một box. Tôi đối chiếu ảnh gốc, chưa có bộ tham chiếu độc lập do coach xác nhận.
 
 ## 3. Calibration và kiểm lại
 
-- Ca đã xử lý, rule ID, bản sửa và người xác nhận: bản review của tôi có 21 shape được sửa trên 13 ảnh với công cụ hỗ trợ, gồm xóa 8 và cập nhật 13. Nhật ký `annotation_corrections_101.csv` có ảnh, chỉ số shape nguồn, ID Task19, rule, lý do và trước/sau. Tôi đã chuẩn bị `calibration_decisions.csv` gồm 604 dòng tương ứng các ca và `calibration_context.json` khóa checksum của lần so sánh. Nhóm chúng tôi còn cần điền quyết định, rule, phiên bản, người chốt và kết quả kiểm lại cho từng ca.
-- Tác động v1.1 lên nhãn và ảnh: chưa có v1.1. Các sửa áp dụng quy tắc v1.0 về pickup/van, tuk-tuk, hình in, instance trùng, occlusion và truncation.
-- Tham chiếu bằng chứng khi Rework: bản 101 ngày 2026-11-16 được giữ ở `history/20261116/101.json` cùng provenance và nhật ký cũ. Bản hiện tại xuất từ Task19/Job14. Nguồn backup khớp bản 102 trên main ở độ chính xác xuất COCO hai chữ số thập phân.
+- Ca đã xử lý, rule ID, bản sửa và người xác nhận: calibration_decisions.csv có 609 dòng gồm 604 ca so sánh và 5 thao tác sửa sau QC. Mỗi dòng có quyết định xử lý, rule, phạm vi, nguồn và cách kiểm. Cột người chốt ghi rõ Codex hỗ trợ101, chờ nhóm xác nhận; không ghi đã họp hoặc được102 nghiệm thu. calibration_resolution_status.json ghi trạng thái từng ca. Nhật ký bổ sung tại calibration_corrections_101.json.
+- Tác động v1.1 lên nhãn và ảnh: giữ quy tắc v1.0; bổ sung ghi chú truy vết và ví dụ áp dụng. Sửa trên 35 ảnh thuộc phạm vi bị cờ theo phiên bản input được manifest ghi nhận. So với COCO101 trước calibration, bổ sung hai người lái tuk-tuk ảnh 004, sửa pickup ảnh 012, loại box cabin/box mảnh trùng và khôi phục người bị bỏ sót ảnh 001. Nhãn bàn giao giữ40 ảnh,344 annotation gồm342 đối tượng và2 ignore.
+- Tham chiếu bằng chứng khi Rework: reviews/round-01/ giữ nhãn 346 annotation và phiếu phát hiện ba box thừa, một người bỏ sót trên hai ảnh 001/034. Tôi sửa và lưu bộ nhãn 344 annotation, mở reviews/round-02/ rồi kiểm lại hai ảnh đã thay đổi; các ảnh khác giữ nguyên từ vòng 1. File input có tên phiên bản được ghi trong batch_manifest.json.
 
 ## 4. Kết quả duyệt
 
-- Vòng QC: chưa mở vòng QC nghiệm thu; lượt review chuẩn bị ngày 2026-11-17 được ghi riêng.
-- Người review và ngày: tôi, mã 101, thực hiện phần review cá nhân với ChatGPT/Codex hỗ trợ ngày 2026-11-17. Nhóm chưa phân công người nghiệm thu cuối và chưa lập phiếu QC toàn lô.
-- Đã duyệt / cả lô: tôi đã thực hiện lượt review tổng quan 40/40 ảnh với sheet có box và lưu các chỉnh sửa. Nhóm còn cần duyệt chi tiết từng đối tượng, vật bỏ sót và ghi phiếu QC cho toàn bộ 40 ảnh.
-- Ảnh lỗi / ảnh đã duyệt: chưa xác định tỷ lệ lỗi QC; 13/40 ảnh có sửa trong lượt review là độ phủ thay đổi, không phải tỷ lệ lỗi còn lại.
-- Annotation đối tượng hiện có bị lỗi / annotation đối tượng đã duyệt: chưa có mẫu số nghiệm thu. COCO hiện có 342 đối tượng và 2 ignore; còn 127 box occluded_level=3 và 288 can_review=true.
-- Vật bỏ sót, ảnh và vùng: chưa hoàn thành khảo sát bỏ sót từng vùng, cần kiểm kỹ ảnh 003/008/019/021/030/032/039 và người trong cabin/qua kính.
-- Ca khó / phần còn lại, lỗi lặp và ví dụ: đã bỏ motorcycle trên hai tuk-tuk ảnh 004 theo R-02, chân dung biển quảng cáo ảnh 018 theo R-09; bỏ box trùng ảnh 001/024/028 theo R-06. Ảnh 024 còn cần xác định bản chất xe vàng, ảnh 040 cần xét riêng phần xe sát dưới, ảnh đông cần kiểm từng instance.
-- Một lỗi máy chặn được và một lỗi cần người đọc ảnh: validator kiểm được box vượt biên hoặc thuộc tính ngoài enum; lượt review phát hiện chân dung in bị gán person tại ảnh 018, điều mà validator cấu trúc không quyết định được. `python -X utf8 scripts/validate_labels.py --all` đạt cho 101 và 102.
+- Vòng QC: 2
+- Người review và ngày: mã 101 với ChatGPT/Codex hỗ trợ ngày 2026-11-17. REVIEW_SCOPE.md trong từng vòng mô tả cách xem sheet, ảnh gốc và overlay. Nhóm chưa có reviewer độc lập xác nhận toàn bộ instance.
+- Đã duyệt / cả lô:40/40 ảnh trong lượt kiểm trực quan có AI hỗ trợ; vòng 2 kiểm lại hai ảnh sửa và kế thừa 38 ảnh giữ nguyên từ vòng 1. Các cờ cần xác nhận chi tiết vẫn giữ.
+- Ảnh lỗi / ảnh đã duyệt: vòng 1 có 2/40=5.0%; vòng 2 chưa phát hiện lỗi bổ sung trong phạm vi kiểm,0/40=0.0%. Đây là số liệu phiếu, cần đọc cùng phạm vi kiểm và trạng thái chưa nghiệm thu độc lập.
+- Annotation đối tượng hiện có bị lỗi / annotation đối tượng đã duyệt: vòng 1 có 3/344=0.87%, ghi riêng1 vật bỏ sót; vòng 2 ghi 0/342=0.0%,0 vật bỏ sót mới. Còn289 box can_review=true và 127 mức che3 trong nhãn bàn giao.
+- Vật bỏ sót, ảnh và vùng: vòng 1 ghi người nữ ngồi sau người ngoài cùng trái ở ảnh 001, đầu khoảngx126–198/y114–240; đã thêm box đề xuất và giữ cờ để kiểm biên. Ảnh040 còn issue phần xe/gương sát dưới, tiếp tục chờ xác định.
+- Ca khó / phần còn lại, lỗi lặp và ví dụ: vòng 1 có lỗi thừa lặp ở cabin pickup và hai box mảnh sedan. Vòng 2 nhóm ca khó có0/35 lỗi mới được phát hiện, nhóm còn lại0/5. Các ảnh đông021/030/032, xe vàng024 và các cờ chưa chắc vẫn cần xác nhận chi tiết.
+- Một lỗi máy chặn được và một lỗi cần người đọc ảnh: validator kiểm được box vượt biên/enum sai; ảnh 001 cho thấy cabin và thùng xe thuộc cùng pickup, ảnh 034 cho thấy box đầu/đuôi thuộc một sedan. Nhận diện cùng instance cần đọc ảnh, vượt ngoài kiểm cấu trúc.
 
 ## 5. Quyết định bàn giao
 
 - Quyết định: Hold
-- Lý do, người nhận và phạm vi sử dụng: tôi nộp hồ sơ hiện có để coach xem phần thực hành và các sửa có bằng chứng. Chưa có gán thủ công độc lập, calibration nhóm, nhãn cuối và phiếu QC toàn lô để Release theo RULES.
-- Nếu còn việc: tôi tiếp tục rà từng sửa, cờ chưa chắc và vấn đề cấp ảnh; nhóm 101–102 hoàn thiện 604 dòng calibration, chốt v1.1 và guideline_change.json, tạo nhãn cuối cùng manifest, phân công reviewer và mở vòng QC. Tôi cập nhật bổ sung lên main của repo nhóm hiện có; kênh nộp chính thức theo SUBMISSION.md và hướng dẫn coach.
-- Kiểm ngược từ báo cáo tới ảnh, rule và nhãn: `img_018.jpg` → R-09 → dòng xóa chỉ số nguồn 153 trong `annotation_corrections_101.csv`; `img_037.jpg` → R-08 → đổi van thành truck, có box và thuộc tính trước/sau; `img_026.jpg` → R-04 → truncated=yes cho xe máy. COCO và checksum xác định đúng bản đã xuất.
+- Lý do, người nhận và phạm vi sử dụng: tôi bàn giao bộ file có đủ phiên bản, nhãn, manifest và hai vòng QC để coach/nhóm kiểm lại. Giữ Hold vì còn 609 dòng chờ xác nhận nhóm,289 cờ review và điều kiện gán độc lập chưa được chứng minh. Kết quả0 lỗi mới trong phiếu vòng 2 chưa giải quyết các điều kiện này.
+- Nếu còn việc: nhóm 101–102 xác nhận các quyết định, xử lý cờ và issue, kiểm từng instance/vật bỏ sót; nếu sửa nhãn thì tạo input phiên bản mới, chạy build_final.py và mở vòng 3. Reviewer cuối xác nhận trước Release.
+- Kiểm ngược từ báo cáo tới ảnh, rule và nhãn: img_034→R-06→phiếu vòng 1 ID 301/304→Q002/Q003 trong calibration_decisions.csv→calibration_corrections_101.json→snapshot và phiếu vòng 2; img_001→R-06→box cabin và người bỏ sót→Q001/Q004/Q005→vòng 2. Manifest khóa checksum của bộ nhãn hiện tại.

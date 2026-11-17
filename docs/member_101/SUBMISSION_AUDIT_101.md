@@ -1,67 +1,28 @@
 # Bảng kiểm bài nộp của tôi — 101
 
-Tôi đối chiếu hồ sơ ngày 2026-11-17 với SUBMISSION.md, GUIDE.md và các mẫu báo cáo. Phần cá nhân dùng ngôi “tôi”, phần chung dùng “nhóm chúng tôi”. Tôi giữ nguồn nhãn và số liệu để người đọc kiểm lại.
+Cập nhật2026-11-17 theo SUBMISSION.md và hai mẫu báo cáo. Phần cá nhân dùng sáu mục của mẫu; QC_REPORT.md giữ năm mục và 23 tên trường.
 
-## Các tệp đã có
-
-| Yêu cầu | Tệp và kết quả |
+| Nhóm hồ sơ | Kết quả |
 |---|---|
-| Nhóm và nguồn dữ liệu | TEAM.md, data/ATTRIBUTION.csv; đủ nguồn cho 40 ảnh |
-| Guideline | Hai bản cá nhân, guideline chung v1.0 và taxonomy v1.0; rules giữ nguyên |
-| Nhãn và phân công | Hai COCO 101/102, assignment.csv và hai danh sách ảnh; mỗi file đủ 40 ảnh |
-| Ghi chú cá nhân | submission/individual_notes/101.md và 102.md; phần tôi giữ sáu mục theo mẫu |
-| Báo cáo QC | submission/qc/QC_REPORT.md; đủ trường theo mẫu, quyết định Hold |
-| Nguồn và dấu vết sửa | Hai provenance và annotation_corrections_101.csv; lịch sử ngày 2026-11-16 được giữ |
-| So sánh bản sửa | review_comparison_101_102.json/.md; ghi bối cảnh kế thừa nguồn |
-| Vấn đề cấp ảnh | image_issues.csv; phần xe/gương sát biên dưới ảnh 040 |
+| Cá nhân101/102 | Có guideline, COCO và ghi chú; mỗi COCO 40 ảnh |
+| Nguồn và phân công | Có TEAM.md, ATTRIBUTION.csv, assignment.csv, hai danh sách ảnh và provenance |
+| So sánh | Giữ nguyên iaa_summary.json/.md,604 ca trên 35 ảnh và nháp đồng thuận |
+| Calibration |609 dòng có nội dung; phân biệt cách xử lý và xác nhận nhóm còn chờ bằng calibration_resolution_status.json |
+| Guideline bàn giao |Có v1.1 editorial và guideline_change.json; giữ nghĩa và ngưỡng v1.0, chờ xác nhận nhóm |
+| Nhãn bàn giao |Có labels_calibrated.json/.csv,40 ảnh/344 annotation và input theo tên phiên bản |
+| Manifest |Có batch_manifest.json, checksum nhãn, nguồn ảnh và các đầu vào |
+| QC vòng 1 |Giữ snapshot 346 annotation, phiếu40 ảnh,3 box thừa và1 người bỏ sót trên2 ảnh |
+| QC vòng 2 |Giữ snapshot 344 annotation, phiếu và kết quả40 ảnh; chưa phát hiện lỗi bổ sung trong lượt kiểm có AI hỗ trợ |
+| Quyết định |Hold do còn cờ và chưa có xác nhận calibration/nghiệm thu độc lập |
 
-## Tệp tôi bổ sung trong lần nộp này
+Hai vòng là kiểm trực quan có ChatGPT/Codex hỗ trợ cho mã 101. Vòng 1 xem 10 sheet đủ 40 ảnh, phóng ảnh gốc cho các ca cần đối chiếu. Vòng 2 mở lại overlay của hai ảnh sửa, kế thừa 38 ảnh giữ nguyên từ vòng 1. REVIEW_SCOPE.md từng vòng ghi phạm vi, không coi chỉ số0 lỗi mới là xác nhận giải quyết hết cờ.
 
-Tôi chạy qc_compare.py trên hai COCO hiện tại và giữ nguyên các đầu ra do script sinh.
+Các tệp được yêu cầu trước đây đã có. Phần còn lại là nội dung cần nhóm xác nhận 609 dòng,289 cờ can_review và 127 mức che3, cùng issue ảnh 040. Điều kiện gán thủ công độc lập của Day07 chưa được chứng minh bởi hai bản cùng nguồn. Không thêm taxonomy_v1.1 vì schema giữ nguyên.
 
-| Tệp trong submission/qc/ | Nội dung |
-|---|---|
-| iaa_summary.json, iaa_summary.md | 40 ảnh, 80/80 lượt có file, 342 cặp; IoU TB 1.0000, cùng lớp 336/342 |
-| calibration_candidates.csv | 604 ca trên 35 ảnh, mỗi ca có case_id |
-| image_scores.csv | Điểm ưu tiên rà soát theo ảnh |
-| flagged_images.txt | Danh sách 35 ảnh cần calibration |
-| consensus_draft.json | Nháp đồng thuận tự động, giữ đủ 40 ảnh |
-| calibration_decisions.csv | 604 dòng có case_id và ảnh; các trường quyết định chờ nhóm điền |
-| calibration_context.json | Checksum khóa kết quả so sánh dùng cho bảng quyết định |
+## Kiểm tra và truy vết
 
-Tôi đã sinh overlay cho 35 ảnh tại work/viz/. Có thể chạy lại bằng `python -X utf8 scripts/viz_disagreement.py --images flagged`.
+Chạy `python -X utf8 scripts/validate_labels.py --all` cho hai COCO cá nhân và `python -X utf8 scripts/check_submission.py --round 2` cho bộ bàn giao. Nhãn cuối, CSV và manifest được sinh bởi build_final.py. Vòng cũ giữ nguyên để đọc lỗi, bản sửa và kết quả kiểm lại.
 
-Hai bản nhãn dùng chung nguồn, nên tôi diễn giải chỉ báo “ĐẠT” trong đầu ra script như kết quả vượt ngưỡng số học trên hai file hiện có. Điều kiện gán thủ công độc lập theo RULES Day07 cần được đánh giá riêng. 604 ca gồm 580 cờ can_review, 8 ca bỏ sót/thừa, 9 ca thuộc tính, 6 ca lớp và 1 vấn đề cấp ảnh; chưa phải 604 lỗi được nhóm xác nhận.
+Repo đã dọn 14 file hướng dẫn xuất trùng/walkthrough/.gitkeep; bản sao cục bộ và ZIP nguồn ở work/repo_cleanup_20261117/. Các liên kết, ảnh gốc, script, test, mẫu chấm và lịch sử có dẫn chứng được giữ.
 
-## Tệp còn thiếu và việc cần làm
-
-| Tệp hoặc nhóm tệp | Phần còn thiếu | Người thực hiện |
-|---|---|---|
-| submission/guidelines/guideline_v1.1_calibrated.md | Chốt guideline sau khi giải quyết các ca calibration | Nhóm 101–102 |
-| submission/guideline_change.json | Ghi thay đổi editorial/semantic của bản v1.1 đã chốt | Nhóm 101–102 |
-| submission/qc/labels_calibrated.json | Sửa nhãn theo quyết định rồi chạy build_final.py | Nhóm 101–102 |
-| submission/qc/labels_calibrated.csv | Sinh cùng nhãn cuối bằng build_final.py | Nhóm 101–102 |
-| submission/qc/batch_manifest.json | Sinh manifest nguồn, phiên bản và checksum của nhãn cuối | Nhóm 101–102 |
-| submission/qc/reviews/round-01/ | Mở vòng QC trên nhãn cuối, điền phiếu rồi sinh qc_result.json | Reviewer cuối do nhóm phân công |
-
-Ngoài các tệp thiếu, 604 dòng trong calibration_decisions.csv còn chờ quyết định, rule, phiên bản, người chốt, phiếu sửa và kiểm lại. taxonomy_v1.1.json chỉ cần nếu nhóm đổi schema. Bản hiện tại giữ taxonomy v1.0.
-
-## Kết quả kiểm tra
-
-- Ghi chú 101 khớp nguyên tên và thứ tự sáu mục của INDIVIDUAL_NOTE_TEMPLATE.md. Báo cáo QC khớp năm mục và 23 tên trường của QC_REPORT_TEMPLATE.md. Phần phân tích cá nhân dẫn các ca C134, C242–C243, C423 và C573 đã đối chiếu với bảng ca.
-- `python -X utf8 scripts/validate_labels.py --all` đạt cho 101 và 102.
-- `python -X utf8 scripts/make_cvat_labels.py` kiểm schema và sinh cấu hình CVAT thành công.
-- `python -X utf8 scripts/qc_compare.py` chạy thành công; bằng chứng đầu vào và checksum lưu trong iaa_summary.json.
-- `python -X utf8 scripts/build_final.py` đã tạo bảng quyết định và context, sau đó dừng tại guideline_change.json chưa có. Chưa tạo nhãn cuối từ các quyết định còn trống.
-- `python -X utf8 scripts/check_submission.py --round 1` còn hai lỗi về số vòng QC và qc_result.json. Bảng thiếu tệp mô tả cả các bước chưa tới trong pipeline.
-- Bộ kiểm thử workflow trước lần bổ sung đã đạt 20/20 trên Linux. Lần này tôi bổ sung hồ sơ và chạy các lệnh kiểm dữ liệu, không thay mã script.
-
-## Rà soát và dọn repo
-
-Tôi đã bỏ 14 file dư khỏi bản hiện tại của repo: ba bản hướng dẫn xuất trùng nội dung (Markdown/HTML/PDF), 10 ảnh walkthrough chỉ phục vụ các bản hướng dẫn đó và `.gitkeep` trong thư mục QC đã có dữ liệu. Các hướng dẫn GUIDE.md, RULES.md, SUBMISSION.md, rubric, mẫu chấm, script, test và dữ liệu vẫn phục vụ kiểm lại bài.
-
-Bản sao cục bộ của các file đã dọn và ZIP nguồn được lưu tại `work/repo_cleanup_20261117/`. Thư mục work được Git bỏ qua. Các bản nhãn và nhật ký lịch sử đang được báo cáo dẫn tới vẫn có trong hồ sơ để truy lại thay đổi.
-
-Sau khi dọn, tôi kiểm 33 file Markdown và không thấy liên kết nội bộ bị hỏng. Hai COCO vẫn đạt validator. Kiểm toàn gói tiếp tục báo hai lỗi về vòng QC và qc_result.json; danh sách tệp còn thiếu đã được ghi trực tiếp trong README và bảng kiểm này.
-
-Tôi nộp bổ sung trên main của repo nhóm hiện có, giữ trạng thái **Hold** tới khi hoàn thiện calibration và QC. Repo hiện là public fork; yêu cầu kênh riêng tư và xác nhận nhận bài theo hướng dẫn coach trong SUBMISSION.md.
+Tôi cập nhật trên main của repo nhóm hiện có. Repo là public fork; kênh riêng tư và xác nhận nhận bài theo hướng dẫn coach trong SUBMISSION.md.

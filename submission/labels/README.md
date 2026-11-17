@@ -11,4 +11,4 @@ Mỗi thành viên một file COCO xuất từ CVAT, tên `<mã>.json`, giữ đ
 
 Hai file đạt kiểm tra cấu trúc. Trong bài 101 của tôi, lượt review có 21 shape được sửa theo guideline v1.0, còn 127 mức che 3 và 288 cờ can_review. Tôi khai báo nguồn và công cụ hỗ trợ ở `../qc/annotation_provenance_101.json`; nguồn bản 102 ở `../qc/annotation_provenance_102.json`. Nhật ký sửa tại `../qc/annotation_corrections_101.csv`.
 
-Tôi đã chạy so sánh, lưu đầu ra chuẩn trong `../qc/iaa_summary.json/.md` và giải thích bối cảnh cùng nguồn trong `../qc/review_comparison_101_102.md`. Nhóm còn cần hoàn thiện bảng quyết định calibration và nhãn cuối được QC nghiệm thu. Bản 101 cũ được giữ trong `../qc/history/20261116/`.
+Tôi đã chạy so sánh, lưu đầu ra chuẩn trong `../qc/iaa_summary.json/.md` và giải thích bối cảnh cùng nguồn trong `../qc/review_comparison_101_102.md`. Bộ bàn giao riêng nằm tại `../qc/labels_calibrated.json/.csv`, có manifest và hai vòng QC. Nhãn cá nhân ở bảng trên giữ trạng thái trước calibration để tái lập phép so sánh. Bản bàn giao có 344 annotation, 289 cờ review và quyết định Hold, chờ xác nhận nhóm. Bản 101 cũ được giữ trong `../qc/history/20261116/`.

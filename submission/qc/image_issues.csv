@@ -1,0 +1,2 @@
+image,annotator,region,note
+img_040.jpg,101,"Mép dưới ảnh, các gương và phần phương tiện hai bánh sát người đội mũ","Tôi chưa xác định được một instance motorcycle có phần nhìn thấy đủ để khoanh box đáng tin cậy. Cần đối chiếu R-05/R-06/R-09 trước khi thêm box; tránh suy cả xe từ một gương hoặc gán phần xe chủ."

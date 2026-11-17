@@ -10,9 +10,9 @@
 
 - Guideline chung và taxonomy: v1.0, hai thành viên đã đồng ý; giữ nguyên ngưỡng của lab.
 - Lượt gán hoàn tất / được giao: chưa có đủ COCO thủ công độc lập để xác nhận / 80 lượt (40 ảnh × 2 người).
-- Bản thực hành review 101: `submission/labels/101.json`, 40 ảnh/344 annotation (342 đối tượng, 2 ignore), Task19/Job14 ngày 2026-11-17; kế thừa backup review của 102, sửa 21 shape trên 13 ảnh. Đạt kiểm tra cấu trúc; còn 127 mức che 3 và 288 cờ review, chưa có xác nhận người học từng sửa.
-- IAA trước calibration (kèm mẫu số): chưa có hai bộ nhãn độc lập hợp lệ. So sánh bản sửa cùng nguồn có 342 cặp, IoU TB 1.0000, cùng lớp 336/342 (98.25%), box chưa ghép 101/102 là 0/8; không diễn giải thành IAA độc lập. Xem `submission/qc/review_comparison_101_102.md`.
-- Số ảnh phải calibration: chưa xác định.
+- Bản thực hành review 101: `submission/labels/101.json`, 40 ảnh/344 annotation (342 đối tượng, 2 ignore), Task19/Job14 ngày 2026-11-17; kế thừa backup review của 102, sửa 21 shape trên 13 ảnh. Đạt kiểm tra cấu trúc; còn 127 mức che 3 và 288 cờ review, lượt review cá nhân có công cụ AI hỗ trợ; nhóm tiếp tục calibration và QC.
+- Kết quả so sánh trước calibration (kèm mẫu số): đã chạy `qc_compare.py` trên hai bản hiện có. So sánh bản sửa cùng nguồn có 342 cặp, IoU TB 1.0000, cùng lớp 336/342 (98.25%), box chưa ghép 101/102 là 0/8; không diễn giải thành IAA độc lập. Xem `submission/qc/review_comparison_101_102.md`.
+- Số ca và ảnh cần calibration: 604 ca do script ghi nhận trên 35 ảnh; gồm cờ chưa chắc và bất đồng, chưa phải 604 lỗi xác nhận. Bảng quyết định đã chuẩn bị, chờ nhóm chốt.
 - Vòng QC và số ảnh đã duyệt / cả lô: chưa thực hiện / 40 ảnh cần duyệt.
 - Tỉ lệ lỗi: N/A, chưa có phiếu duyệt.
 - Quyết định: **Hold**, do thiếu nhãn độc lập, calibration và bằng chứng QC; chưa bàn giao lô nhãn.

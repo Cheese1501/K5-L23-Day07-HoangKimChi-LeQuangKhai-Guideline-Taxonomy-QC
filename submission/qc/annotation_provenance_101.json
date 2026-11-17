@@ -49,5 +49,10 @@
     "The source is shared with 102. Agreement is dependent revision agreement, not independent IAA.",
     "Day07 independent manual drawing requirement is not met by this workflow."
   ],
-  "previous_101_artifact": "submission/qc/history/20261116/101.json"
+  "previous_101_artifact": "submission/qc/history/20261116/101.json",
+  "member": "101",
+  "authorship_confirmed_by_member": true,
+  "authorship_confirmation_date": "2026-11-17",
+  "authorship_statement": "Member 101 states this is their own coursework and requests first-person reporting; AI assistance and shared source remain disclosed.",
+  "human_review_complete_meaning": "Object-level final QC has not been completed; this field does not describe authorship."
 }

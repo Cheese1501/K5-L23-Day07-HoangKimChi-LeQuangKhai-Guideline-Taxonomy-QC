@@ -1,20 +1,22 @@
-# Task thực hành độc lập — nhóm 101–102
+# Task và bản xuất của nhóm 101–102
 
-CVAT local: http://localhost:8080, phiên bản đã chuẩn bị 2.74.1. Các liên kết chỉ mở trên máy chạy CVAT; đây là hướng dẫn thao tác, không phải bằng chứng đã hoàn thành gán nhãn.
+Chúng tôi dùng CVAT local tại http://localhost:8080, phiên bản 2.74.1. Liên kết CVAT mở trên máy chạy dịch vụ; các COCO trong repo là bản bàn giao để đối chiếu.
 
-**Cập nhật2026-11-16:** Task15 và16 theo phân công cũ hiện trả về404, không còn mở được. Cần chuẩn bị lại Task riêng nếu tiếp tục lượt gán thủ công độc lập; bảng dưới chỉ lưu tham chiếu cũ. Không thay Task độc lập bằng bản nhãn AI.
+| Nội dung | Task / Job trên máy hiện tại | Bản trong repo |
+|---|---|---|
+| Bài review của tôi — 101 | [Task19/Job14](http://localhost:8080/tasks/19/jobs/14), DAY07-101-REVIEW-40frames | submission/labels/101.json, 40 ảnh/344 annotation |
+| Backup 102 đã khôi phục | [Task18/Job13](http://localhost:8080/tasks/18/jobs/13), DAY07-102-REVIEWED-40frames | submission/labels/102.json, 40 ảnh/352 annotation; export nguồn ghi nhận Task35/Job34 trong provenance của 102 |
 
-Task review 101 hiện tại, cập nhật ngày 2026-11-17, là [Task19/Job14](http://localhost:8080/tasks/19/jobs/14), kế thừa backup đã review của 102 rồi sửa theo guideline v1.0. COCO 40 ảnh/344 annotation nằm ở `submission/labels/101.json`, trạng thái Hold. Nguồn và giới hạn trong `submission/qc/annotation_provenance_101.json`. Bản cũ từ [Task17/Job12](http://localhost:8080/tasks/17/jobs/12) được giữ tại `submission/qc/history/20261116/`.
+Tôi dùng backup 102 để thực hiện lượt review 101 với công cụ hỗ trợ, lưu 21 chỉnh sửa trên 13 ảnh theo guideline v1.0. Nguồn, checksum và nhật ký tại submission/qc/annotation_provenance_101.json và annotation_corrections_101.csv.
 
-| Mã | Task | Job | Phân công |
-|---|---|---|---|
-| 101 | [Task 15](http://localhost:8080/tasks/15) | [Job 10](http://localhost:8080/tasks/15/jobs/10) | img_001.jpg–img_040.jpg |
-| 102 | [Task 16](http://localhost:8080/tasks/16) | [Job 11](http://localhost:8080/tasks/16/jobs/11) | img_001.jpg–img_040.jpg |
+Task15/16 theo phân công cũ trả 404 ở lần kiểm trước. Bản 101 cũ từ [Task17/Job12](http://localhost:8080/tasks/17/jobs/12) được giữ trong submission/qc/history/20261116/ để truy lại lịch sử.
 
-1. Kiểm Task đúng mã, đủ 40 ảnh và cấu hình từ `cvat/labels_generated.json`.
-2. Tự vẽ box theo [guideline v1.0](../../submission/guidelines/guideline_v1.0_agreed.md); không dùng pre-label hoặc xem nhãn người kia.
-3. Box hợp lý nhưng chưa chắc thì can_review; chưa xác định được box/class thì ghi ảnh, vùng và lý do riêng.
-4. Save, export COCO 1.0, tắt Save images; lưu `submission/labels/<mã>.json`, giữ cả ảnh không có box.
-5. Chạy validator cho bản cá nhân và nộp riêng. Chỉ tập hợp nhãn sau khi cả hai hoàn tất.
+## Đối chiếu và tiếp tục làm bài
 
-Quy trình đầy đủ theo [GUIDE.md](../../GUIDE.md) và [CVAT_SETUP.md](../CVAT_SETUP.md).
+1. Kiểm đủ 40 ảnh theo submission/qc/assignments/<mã>.txt, dùng cấu hình cvat/labels_generated.json.
+2. Dùng guideline chung v1.0 để kiểm class, phần nhìn thấy, mức che, cắt biên và cờ review. Vùng chưa xác định box/class ghi trong image_issues.csv.
+3. Save và export COCO 1.0, tắt Save images, giữ cả ảnh không có đối tượng.
+4. Chạy validator, rồi chạy lại so sánh khi hai bản đầu vào thay đổi. Lưu bảng quyết định cũ trước khi tạo context mới.
+5. Nhóm chúng tôi hoàn thiện calibration, chốt v1.1, tạo nhãn cuối và mở vòng QC theo GUIDE.md.
+
+Quy trình gán thủ công độc lập của lab trong [GUIDE.md](../../GUIDE.md) và [CVAT_SETUP.md](../CVAT_SETUP.md). Bối cảnh cùng nguồn của lượt review hiện tại được ghi trong báo cáo QC và ghi chú cá nhân.

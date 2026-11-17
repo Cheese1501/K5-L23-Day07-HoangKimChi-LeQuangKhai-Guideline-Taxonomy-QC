@@ -1,0 +1,37 @@
+# Ghi chú cá nhân — 101
+
+## 1. Pha 1: ba ca khó tôi tìm ra trong 40 ảnh
+
+| Ảnh | v0 không trả lời được gì | Quyết định ban đầu của tôi |
+|---|---|---|
+| img_002 | Xe con trên carrier có tính riêng không? Phần bị khung che được vẽ thế nào? | Xét một truck cho tổ hợp xe chở và từng xe con riêng. Box bao các phần nhìn thấy của cùng xe, không dựng phần khuất. Người cạnh đuôi xe cũng là ứng viên person riêng. |
+| img_005, đối chiếu img_026 | Người lái và hành khách có gộp vào xe máy không? | Tách person và motorcycle, cho phép box chồng nhau. Ở img_026, xét hai người và xe riêng; hình trên tường không phải người thật. Xe bị cắt ở biên dưới cần truncated=yes. |
+| img_017 | Tượng có hình người có thuộc person không? | Loại tượng cưỡi ngựa khỏi person; không dùng ignore_region để thay quyết định loại theo phạm vi. |
+
+## 2. Pha 2: chỗ tôi bất đồng với nhóm
+
+Trong bản cá nhân, tôi đề xuất mốc 25% để phân biệt che nhẹ và che nhiều, còn mức 3 là không xác định. Bản đề xuất của 102 dùng mốc 30%/70% và mức 3 cho che trên 70%. Hai cách hiểu này có thể khiến cùng một vật nhận thuộc tính khác nhau.
+
+Nhóm đã thống nhất v1.0: 0 không che; 1 che dưới 50%; 2 che từ 50% trở lên; 3 không xác định mức che. Tôi dùng quy tắc chung khi gán, không tiếp tục dùng mốc 25%. Tỷ lệ che chỉ xét phần đối tượng trong ảnh; phần bị biên ảnh cắt thuộc truncated. Giữ bản cá nhân để nhìn lại thay đổi trong cách diễn giải, không sửa nó thành bản sao của guideline nhóm.
+
+Với img_024 và img_040, quy tắc chung là không suy đoán vật hoặc phần xe không thấy: có box ứng viên hợp lý thì can_review, chưa đủ căn cứ nhận dạng thì ghi ảnh/vùng/lý do. Ở img_028, ngựa ngoài taxonomy; cần xét riêng việc nó có che phần xe hay không.
+
+## 3. Pha 3: ảnh tôi đã gán
+
+- Số ảnh được giao: **40**, theo `submission/qc/assignments/101.txt`.
+- Hồ sơ hiện có `submission/labels/101.json`: **40 ảnh, 344 annotation**, gồm342 đối tượng và2 vùng ignore, xuất từ Task review AI. Đây không phải số box tôi tự vẽ trong lượt độc lập. Bản đã qua kiểm tra cấu trúc, còn312 box mức che3 và342 box đối tượng cần review.
+- Ca lưỡng lự trong lúc gán: chưa có ghi chép thực hành để báo cáo. Các ca ở mục 1 là phân tích trước gán, chưa phải lỗi hoặc trải nghiệm sửa nhãn.
+
+## 4. Pha 4–5: tôi lệch ở đâu
+
+Chưa có hai bộ nhãn độc lập và `calibration_candidates.csv`, nên chưa xác định được ca lệch của tôi hoặc quyết định calibration quan trọng nhất. Tôi chưa có kết quả IoU, đồng thuận lớp hay bản sửa nhãn để trình bày ở pha này.
+
+## 5. Dùng AI
+
+Tôi có dùng ChatGPT/Codex hỗ trợ diễn giải thuật ngữ, gợi ý phân tích ca ảnh, sắp xếp và rà câu chữ của tài liệu. Các gợi ý phân tích ảnh cần được tôi tự đối chiếu với ảnh gốc, v0, taxonomy và GUIDE/RULES trước khi nhận làm kết luận cá nhân. Hồ sơ hiện chưa đủ để xác nhận tôi đã hoàn tất bước khảo sát độc lập toàn bộ40 ảnh; tôi không dùng phần hỗ trợ này thay bằng chứng tự làm.
+
+Bản nhãn nháp YOLO11n + SAM3 từ nguồn khác được dùng để thực hành review. Sau export, bản còn lỗi box person bị lặp qua38 ảnh và một box vượt biên. Lượt sửa bằng trợ lý AI đã loại92 box, sửa48 box và giữ cờ cho các ca chưa chốt; nguồn và phạm vi lưu trong `submission/qc/annotation_provenance_101.json`. Đây không phải box tôi tự vẽ; tôi không tính bản này vào lượt gán độc lập Day07 hoặc tự nhận đã review xong. Việc thử nhãn AI không thay yêu cầu người học tự quyết định và vẽ box.
+
+## 6. Bài học
+
+Một quy tắc dễ đọc vẫn có thể chưa đủ để hai người gán giống nhau. Lần sau, tôi sẽ viết rõ biên phần trăm, ví dụ và phản ví dụ, rồi thử cùng quy tắc trên ít nhất hai ảnh. Tôi cũng cần tách ba việc: loại vật ngoài phạm vi, đánh dấu box cần review và ghi vấn đề chưa xác định được box. Kết quả IAA sau này phải được đọc cùng vật bỏ sót và nguy cơ hai người cùng sai.

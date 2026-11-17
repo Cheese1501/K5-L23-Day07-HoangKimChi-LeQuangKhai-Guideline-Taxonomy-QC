@@ -1,36 +1,53 @@
 {
   "member_artifact": "101.json",
   "status": "HOLD",
-  "annotation_mode": "AI-assisted correction and review",
+  "annotation_mode": "AI-assisted review derived from member 102 reviewed backup",
   "independent_manual_annotation": false,
-  "source": "CVAT Task17 / Job12; original pre-label YOLO11n + SAM3 from supplied backup",
-  "source_backup_sha256": "183b04895d3410a450c6d49868edf7f6163d274b476f1fac6d08ec054973fe0e",
-  "source_export_zip_sha256": "29e02afb7d4060218e131c1e7ea8cedfb12b05ccfc12d6f4836a3971440e5866",
-  "corrected_coco_sha256": "8d631f9efbbaacb2fb026b7e82481de2ff8e8e316d4b7296899eacc2f6443cf2",
+  "source_member": "102",
+  "source": "DAY07-102-REVIEWED-40frames-CVAT-backup.zip; restored Task18/Job13; reviewed copy Task19/Job14",
+  "source_backup_sha256": "4870aaa2a3257a20c6773cd862ed06ed4d03edd917911a252dded8ac12348088",
+  "source_coco_102_sha256": "3fe63fec2771eb7e47a2167526d6e208a80b5d1a309a985b721b4bf5f20f67c6",
+  "corrected_coco_sha256": "e996c410d42d9dd0966ab0c7f71774dc90b61a2b14e1d4d0963147839c009921",
+  "source_export_zip_sha256": "55636419e2e7b0560fadbe0d81a51b3110b9e960ef77002c9826bef55885fb8f",
+  "task_id": 19,
+  "job_id": 14,
+  "date": "2026-11-17",
   "images": 40,
   "annotations": 344,
   "object_annotations": 342,
   "ignore_regions": 2,
-  "deleted_shapes": 92,
-  "updated_shapes": 48,
+  "class_counts": {
+    "person": 183,
+    "truck": 13,
+    "car": 64,
+    "motorcycle": 79,
+    "van": 3,
+    "ignore_region": 2
+  },
+  "deleted_shapes": 8,
+  "updated_shapes": 13,
+  "changed_images": 13,
   "occluded_level_counts": {
-    "1": 10,
-    "2": 2,
-    "0": 18,
-    "3": 312
+    "3": 127,
+    "0": 65,
+    "2": 24,
+    "1": 126
   },
   "truncated_counts": {
-    "no": 311,
-    "yes": 31
+    "no": 318,
+    "yes": 24
   },
-  "can_review_true": 342,
-  "structure_validation": "PASS; scripts/validate_labels.py",
+  "can_review_true": 288,
+  "structure_validation": "PASS; python -X utf8 scripts/validate_labels.py --all",
+  "visual_overview_images": 40,
+  "visual_overview_method": "10 contact sheets, four annotated images per sheet",
   "semantic_qc_complete": false,
   "human_review_complete": false,
   "limitations": [
-    "312 boxes still have unknown occlusion and require review",
-    "All342 object boxes retain can_review=true; absence of flags has not been fabricated",
-    "Object completeness and precise geometry in crowded/distant regions remain to be reviewed",
-    "Not a replacement for independently drawn Day07 labels or evidence of completed IAA/calibration/QC"
-  ]
+    "Overview and 21 documented corrections do not establish complete object-level QC.",
+    "Dense scenes, omitted objects, precise geometry and remaining review flags require human review.",
+    "The source is shared with 102. Agreement is dependent revision agreement, not independent IAA.",
+    "Day07 independent manual drawing requirement is not met by this workflow."
+  ],
+  "previous_101_artifact": "submission/qc/history/20261116/101.json"
 }

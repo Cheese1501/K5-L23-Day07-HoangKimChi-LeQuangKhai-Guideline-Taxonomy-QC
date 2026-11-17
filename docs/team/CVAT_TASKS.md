@@ -4,7 +4,7 @@ CVAT local: http://localhost:8080, phiên bản đã chuẩn bị 2.74.1. Các l
 
 **Cập nhật2026-11-16:** Task15 và16 theo phân công cũ hiện trả về404, không còn mở được. Cần chuẩn bị lại Task riêng nếu tiếp tục lượt gán thủ công độc lập; bảng dưới chỉ lưu tham chiếu cũ. Không thay Task độc lập bằng bản nhãn AI.
 
-Task đang dùng cho thực hành review: [Task17/Job12](http://localhost:8080/tasks/17/jobs/12). Bản sau sửa đã export vào `submission/labels/101.json`; trạng thái Hold, xem nguồn và giới hạn trong `submission/qc/annotation_provenance_101.json`.
+Task review 101 hiện tại, cập nhật ngày 2026-11-17, là [Task19/Job14](http://localhost:8080/tasks/19/jobs/14), kế thừa backup đã review của 102 rồi sửa theo guideline v1.0. COCO 40 ảnh/344 annotation nằm ở `submission/labels/101.json`, trạng thái Hold. Nguồn và giới hạn trong `submission/qc/annotation_provenance_101.json`. Bản cũ từ [Task17/Job12](http://localhost:8080/tasks/17/jobs/12) được giữ tại `submission/qc/history/20261116/`.
 
 | Mã | Task | Job | Phân công |
 |---|---|---|---|

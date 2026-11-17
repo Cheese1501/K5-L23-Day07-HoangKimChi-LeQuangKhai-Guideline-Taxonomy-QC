@@ -1,0 +1,360 @@
+{
+  "comparison_type": "dependent revision comparison",
+  "independent_iaa": false,
+  "interpretation": "101 inherits the supplied reviewed 102 backup. These values measure revision agreement only.",
+  "images": 40,
+  "matching": "common.match_boxes; class-agnostic greedy 1-to-1; match_iou=0.5",
+  "ignore_handling": "2 ignore regions per file excluded from object matching; no object suppressed by ignore coverage",
+  "source102_matches_supplied_backup_at_coco_precision_2_decimals": true,
+  "sha256_101": "e996c410d42d9dd0966ab0c7f71774dc90b61a2b14e1d4d0963147839c009921",
+  "sha256_102": "3fe63fec2771eb7e47a2167526d6e208a80b5d1a309a985b721b4bf5f20f67c6",
+  "matched_pairs": 342,
+  "unmatched_101": 0,
+  "unmatched_102": 8,
+  "same_class_pairs": 336,
+  "class_agreement": 0.9824561403508771,
+  "mean_iou": 1.0,
+  "attribute_agreement": {
+    "occluded_level": {
+      "same": 338,
+      "total": 342,
+      "ratio": 0.9883040935672515
+    },
+    "truncated": {
+      "same": 337,
+      "total": 342,
+      "ratio": 0.9853801169590644
+    },
+    "can_review": {
+      "same": 338,
+      "total": 342,
+      "ratio": 0.9883040935672515
+    }
+  },
+  "changed_source_shapes": 21,
+  "changed_images": 13,
+  "deleted": 8,
+  "updated": 13,
+  "per_image": [
+    {
+      "image": "img_001.jpg",
+      "objects_101": 8,
+      "objects_102": 9,
+      "matched": 8,
+      "unmatched_101": 0,
+      "unmatched_102": 1
+    },
+    {
+      "image": "img_002.jpg",
+      "objects_101": 10,
+      "objects_102": 10,
+      "matched": 10,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_003.jpg",
+      "objects_101": 15,
+      "objects_102": 15,
+      "matched": 15,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_004.jpg",
+      "objects_101": 0,
+      "objects_102": 2,
+      "matched": 0,
+      "unmatched_101": 0,
+      "unmatched_102": 2
+    },
+    {
+      "image": "img_005.jpg",
+      "objects_101": 14,
+      "objects_102": 14,
+      "matched": 14,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_006.jpg",
+      "objects_101": 19,
+      "objects_102": 19,
+      "matched": 19,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_007.jpg",
+      "objects_101": 2,
+      "objects_102": 2,
+      "matched": 2,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_008.jpg",
+      "objects_101": 22,
+      "objects_102": 23,
+      "matched": 22,
+      "unmatched_101": 0,
+      "unmatched_102": 1
+    },
+    {
+      "image": "img_009.jpg",
+      "objects_101": 8,
+      "objects_102": 8,
+      "matched": 8,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_010.jpg",
+      "objects_101": 8,
+      "objects_102": 8,
+      "matched": 8,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_011.jpg",
+      "objects_101": 10,
+      "objects_102": 10,
+      "matched": 10,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_012.jpg",
+      "objects_101": 4,
+      "objects_102": 4,
+      "matched": 4,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_013.jpg",
+      "objects_101": 6,
+      "objects_102": 6,
+      "matched": 6,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_014.jpg",
+      "objects_101": 2,
+      "objects_102": 2,
+      "matched": 2,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_015.jpg",
+      "objects_101": 8,
+      "objects_102": 8,
+      "matched": 8,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_016.jpg",
+      "objects_101": 7,
+      "objects_102": 8,
+      "matched": 7,
+      "unmatched_101": 0,
+      "unmatched_102": 1
+    },
+    {
+      "image": "img_017.jpg",
+      "objects_101": 0,
+      "objects_102": 0,
+      "matched": 0,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_018.jpg",
+      "objects_101": 5,
+      "objects_102": 6,
+      "matched": 5,
+      "unmatched_101": 0,
+      "unmatched_102": 1
+    },
+    {
+      "image": "img_019.jpg",
+      "objects_101": 13,
+      "objects_102": 13,
+      "matched": 13,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_020.jpg",
+      "objects_101": 0,
+      "objects_102": 0,
+      "matched": 0,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_021.jpg",
+      "objects_101": 30,
+      "objects_102": 30,
+      "matched": 30,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_022.jpg",
+      "objects_101": 1,
+      "objects_102": 1,
+      "matched": 1,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_023.jpg",
+      "objects_101": 11,
+      "objects_102": 11,
+      "matched": 11,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_024.jpg",
+      "objects_101": 7,
+      "objects_102": 8,
+      "matched": 7,
+      "unmatched_101": 0,
+      "unmatched_102": 1
+    },
+    {
+      "image": "img_025.jpg",
+      "objects_101": 15,
+      "objects_102": 15,
+      "matched": 15,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_026.jpg",
+      "objects_101": 3,
+      "objects_102": 3,
+      "matched": 3,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_027.jpg",
+      "objects_101": 0,
+      "objects_102": 0,
+      "matched": 0,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_028.jpg",
+      "objects_101": 2,
+      "objects_102": 3,
+      "matched": 2,
+      "unmatched_101": 0,
+      "unmatched_102": 1
+    },
+    {
+      "image": "img_029.jpg",
+      "objects_101": 8,
+      "objects_102": 8,
+      "matched": 8,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_030.jpg",
+      "objects_101": 10,
+      "objects_102": 10,
+      "matched": 10,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_031.jpg",
+      "objects_101": 11,
+      "objects_102": 11,
+      "matched": 11,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_032.jpg",
+      "objects_101": 27,
+      "objects_102": 27,
+      "matched": 27,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_033.jpg",
+      "objects_101": 0,
+      "objects_102": 0,
+      "matched": 0,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_034.jpg",
+      "objects_101": 24,
+      "objects_102": 24,
+      "matched": 24,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_035.jpg",
+      "objects_101": 6,
+      "objects_102": 6,
+      "matched": 6,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_036.jpg",
+      "objects_101": 6,
+      "objects_102": 6,
+      "matched": 6,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_037.jpg",
+      "objects_101": 2,
+      "objects_102": 2,
+      "matched": 2,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_038.jpg",
+      "objects_101": 0,
+      "objects_102": 0,
+      "matched": 0,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_039.jpg",
+      "objects_101": 15,
+      "objects_102": 15,
+      "matched": 15,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    },
+    {
+      "image": "img_040.jpg",
+      "objects_101": 3,
+      "objects_102": 3,
+      "matched": 3,
+      "unmatched_101": 0,
+      "unmatched_102": 0
+    }
+  ]
+}

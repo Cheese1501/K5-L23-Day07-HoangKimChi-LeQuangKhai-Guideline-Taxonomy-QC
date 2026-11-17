@@ -1,0 +1,36 @@
+{
+  "member_artifact": "101.json",
+  "status": "HOLD",
+  "annotation_mode": "AI-assisted correction and review",
+  "independent_manual_annotation": false,
+  "source": "CVAT Task17 / Job12; original pre-label YOLO11n + SAM3 from supplied backup",
+  "source_backup_sha256": "183b04895d3410a450c6d49868edf7f6163d274b476f1fac6d08ec054973fe0e",
+  "source_export_zip_sha256": "29e02afb7d4060218e131c1e7ea8cedfb12b05ccfc12d6f4836a3971440e5866",
+  "corrected_coco_sha256": "8d631f9efbbaacb2fb026b7e82481de2ff8e8e316d4b7296899eacc2f6443cf2",
+  "images": 40,
+  "annotations": 344,
+  "object_annotations": 342,
+  "ignore_regions": 2,
+  "deleted_shapes": 92,
+  "updated_shapes": 48,
+  "occluded_level_counts": {
+    "1": 10,
+    "2": 2,
+    "0": 18,
+    "3": 312
+  },
+  "truncated_counts": {
+    "no": 311,
+    "yes": 31
+  },
+  "can_review_true": 342,
+  "structure_validation": "PASS; scripts/validate_labels.py",
+  "semantic_qc_complete": false,
+  "human_review_complete": false,
+  "limitations": [
+    "312 boxes still have unknown occlusion and require review",
+    "All342 object boxes retain can_review=true; absence of flags has not been fabricated",
+    "Object completeness and precise geometry in crowded/distant regions remain to be reviewed",
+    "Not a replacement for independently drawn Day07 labels or evidence of completed IAA/calibration/QC"
+  ]
+}

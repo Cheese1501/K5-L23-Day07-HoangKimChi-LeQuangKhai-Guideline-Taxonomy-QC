@@ -11,7 +11,7 @@
 - Guideline chung và taxonomy: v1.0, hai thành viên đã đồng ý; giữ nguyên ngưỡng của lab.
 - Lượt gán hoàn tất / được giao: chưa có đủ COCO thủ công độc lập để xác nhận / 80 lượt (40 ảnh × 2 người).
 - Bản thực hành review 101: `submission/labels/101.json`, 40 ảnh/344 annotation (342 đối tượng, 2 ignore), Task19/Job14 ngày 2026-11-17; kế thừa backup review của 102, sửa 21 shape trên 13 ảnh. Đạt kiểm tra cấu trúc; còn 127 mức che 3 và 288 cờ review, lượt review cá nhân có công cụ AI hỗ trợ; nhóm tiếp tục calibration và QC.
-- Kết quả so sánh trước calibration (kèm mẫu số): đã chạy `qc_compare.py` trên hai bản hiện có. So sánh bản sửa cùng nguồn có 342 cặp, IoU TB 1.0000, cùng lớp 336/342 (98.25%), box chưa ghép 101/102 là 0/8; không diễn giải thành IAA độc lập. Xem `submission/qc/review_comparison_101_102.md`.
+- Kết quả so sánh trước calibration (kèm mẫu số): đã chạy `qc_compare.py` trên hai bản hiện có. So sánh bản sửa cùng nguồn có 342 cặp, IoU TB 1.0000, cùng lớp 336/342 (98.25%), box chưa ghép 101/102 là 0/8; không diễn giải thành IAA độc lập. Xem `submission/qc/iaa_summary.md` và phần giải thích trong báo cáo QC.
 - Calibration:604 ca so sánh trên 35 ảnh và 5 thao tác sau QC đã ghi quyết định xử lý;609 dòng còn chờ xác nhận nhóm. Có guideline v1.1 editorial, nhãn bàn giao JSON/CSV và manifest.
 - Vòng QC:hai vòng kiểm trực quan có AI hỗ trợ,40/40 ảnh mỗi vòng; vòng 2 kiểm lại hai ảnh sửa và kế thừa 38 ảnh giữ nguyên. Còn chờ nghiệm thu độc lập.
 - Tỉ lệ lỗi trong phiếu:vòng 1 có 2/40 ảnh lỗi,3/344 box hiện có lỗi và1 vật bỏ sót; vòng 2 ghi 0/40 lỗi mới và0/342 box lỗi, còn 289 cờ review.

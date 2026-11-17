@@ -8,7 +8,7 @@
   "source_backup_sha256": "4870aaa2a3257a20c6773cd862ed06ed4d03edd917911a252dded8ac12348088",
   "source_coco_102_sha256": "3fe63fec2771eb7e47a2167526d6e208a80b5d1a309a985b721b4bf5f20f67c6",
   "corrected_coco_sha256": "e996c410d42d9dd0966ab0c7f71774dc90b61a2b14e1d4d0963147839c009921",
-  "source_export_zip_sha256": "55636419e2e7b0560fadbe0d81a51b3110b9e960ef77002c9826bef55885fb8f",
+  "source_export_zip_sha256": "d57e3c7fe835044a929ce4fd25bc2135c6ac08d3b268a26e8bdb00583727143f",
   "task_id": 19,
   "job_id": 14,
   "date": "2026-11-17",
@@ -54,5 +54,11 @@
   "authorship_confirmed_by_member": true,
   "authorship_confirmation_date": "2026-11-17",
   "authorship_statement": "Member 101 states this is their own coursework and requests first-person reporting; AI assistance and shared source remain disclosed.",
-  "human_review_complete_meaning": "Object-level final QC has not been completed; this field does not describe authorship."
+  "human_review_complete_meaning": "Object-level final QC has not been completed; this field does not describe authorship.",
+  "source_export_filename": "job_14_annotations_2026_11_17_04_17_59_coco 1.0.zip",
+  "member_provided_export_verified": true,
+  "member_provided_export_date": "2026-11-17",
+  "member_provided_export_matches_submitted_101_byte_for_byte": true,
+  "member_declares_independent_manual_annotation": true,
+  "independence_claim_verification": "The supplied COCO is byte-identical to the existing reviewed 101 artifact. File identity and structural validation do not establish an independent manual drawing process. Recorded lineage is retained."
 }

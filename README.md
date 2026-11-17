@@ -22,6 +22,8 @@ Trong lượt review 101, tôi sử dụng backup đã review của 102 và côn
 
 ## Hồ sơ bài nộp
 
+File COCO 101 đã được đối chiếu với bản export tôi cung cấp, `job_14_annotations_2026_11_17_04_17_59_coco 1.0.zip`. JSON bên trong khớp từng byte với `submission/labels/101.json`, đủ 40 ảnh và 344 annotation.
+
 | Nội dung | Tệp |
 |---|---|
 | Thông tin nhóm và tiến độ | [TEAM.md](TEAM.md) |
@@ -33,11 +35,9 @@ Trong lượt review 101, tôi sử dụng backup đã review của 102 và côn
 | Báo cáo QC theo mẫu | [QC_REPORT.md](submission/qc/QC_REPORT.md) |
 | Ghi chú cá nhân | [101](submission/individual_notes/101.md), [102](submission/individual_notes/102.md) |
 | Kết quả so sánh do script sinh | [iaa_summary.md](submission/qc/iaa_summary.md), [iaa_summary.json](submission/qc/iaa_summary.json) |
-| Phân tích nguồn và mức thay đổi | [review_comparison_101_102.md](submission/qc/review_comparison_101_102.md) |
 | Chuẩn bị calibration | [calibration_candidates.csv](submission/qc/calibration_candidates.csv), [calibration_decisions.csv](submission/qc/calibration_decisions.csv), [calibration_context.json](submission/qc/calibration_context.json) |
 | Ảnh cần xem và nháp đồng thuận | [flagged_images.txt](submission/qc/flagged_images.txt), [image_scores.csv](submission/qc/image_scores.csv), [consensus_draft.json](submission/qc/consensus_draft.json) |
 | Nguồn và nhật ký sửa của tôi | [annotation_provenance_101.json](submission/qc/annotation_provenance_101.json), [annotation_corrections_101.csv](submission/qc/annotation_corrections_101.csv) |
-| Kiểm tra file và phần cần hoàn thiện | [SUBMISSION_AUDIT_101.md](docs/member_101/SUBMISSION_AUDIT_101.md) |
 | Nguồn và phép sử dụng ảnh | [data/README.md](data/README.md), [ATTRIBUTION.csv](data/ATTRIBUTION.csv) |
 
 `consensus_draft.json` là bản nháp tự động. Bộ bàn giao có nhãn riêng và hai vòng QC; quyết định hiện tại là Hold. Các dòng calibration đã có quyết định xử lý và ghi rõ phần chờ nhóm xác nhận.
@@ -73,6 +73,6 @@ Validator đã đạt cho cả 101 và 102. Lệnh so sánh sinh số đo và c�
 
 ## Tài liệu lab
 
-[Hướng dẫn các pha](GUIDE.md), [quy tắc](RULES.md), [rubric](RUBRIC.md), [yêu cầu bàn giao](SUBMISSION.md), [lệnh và định dạng phiếu](scripts/README.md), [Task CVAT](docs/team/CVAT_TASKS.md), [ngưỡng QC](docs/QC_CHEATSHEET.md).
+[Hướng dẫn các pha](GUIDE.md), [quy tắc](RULES.md), [rubric](RUBRIC.md), [yêu cầu bàn giao](SUBMISSION.md), [lệnh và định dạng phiếu](scripts/README.md), [thiết lập CVAT](docs/CVAT_SETUP.md), [ngưỡng QC](docs/QC_CHEATSHEET.md).
 
 Tôi cập nhật bổ sung lên nhánh `main` của repo nhóm hiện có. Việc nhận bài và kênh nộp chính thức thực hiện theo hướng dẫn của coach trong SUBMISSION.md.
